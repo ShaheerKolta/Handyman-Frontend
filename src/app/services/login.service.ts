@@ -13,28 +13,23 @@ import { RequestService } from './request.service';
 })
 export class LoginService {
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$';
-  private loginPath = environment.apiUrl + '/login';
+  private loginPath = '/login';
   //  private registerPath = environment.apiUrl+''   // ? Not Now
 
   // private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
   // isloggedin$ = this._isLoggedIn$.asObservable();
 
-  // Controller = '/login';
-  // emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$';
+   Controller = '/login';
 
-  // loginform: FormGroup = new FormGroup({
-  //   Email: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
-  //   password: new FormControl(null, Validators.required),
-  //   type: new FormControl(null, Validators.required)
-  // });
+
   constructor(private requestService: RequestService, http: HttpClient) {}
 
   loginform: FormGroup = new FormGroup({
-    Email: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
+    userName: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
 
     password: new FormControl(null, Validators.required),
 
-    Type: new FormControl(null, Validators.required)
+    role: new FormControl(null, Validators.required)
   });
 
   // login(Email:string , password:string){
@@ -45,12 +40,13 @@ export class LoginService {
   // })
 
   login(data): Observable<any> {
-    return this.requestService.post(this.loginform.value, data);
+    return this.requestService.post( this.loginPath,data);
   }
 
   // Todo : Make get client by Email Function
 
   saveToken(token) {
+    debugger
     console.log(token);
     localStorage.setItem('token', token);
   }
@@ -62,6 +58,7 @@ export class LoginService {
   logout() {
     localStorage.removeItem('token');
   }
+  
 
   // public isAuthenticated(): boolean {
   //   // get the token
