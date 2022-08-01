@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { paintersDB } from '../shared/data/painters';
 
 @Component({
   selector: 'app-painters',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./painters.component.scss']
 })
 export class PaintersComponent implements OnInit {
-
-  constructor() { }
+  painters = []
+  constructor() {
+    this.painters = paintersDB.Painter;
+   }
 
   ngOnInit(): void {
   }

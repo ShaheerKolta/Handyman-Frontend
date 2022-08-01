@@ -17,6 +17,8 @@ import { PaintersComponent } from './painters/painters.component';
 import { MechanicsComponent } from './mechanics/mechanics.component';
 import { AppliancesTechnicianComponent } from './appliances-technician/appliances-technician.component';
 import { OtherComponent } from './other/other.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenServiceService } from './services/token-service.service';
 
 @NgModule({
   declarations: [AppComponent, 
@@ -64,14 +66,16 @@ import { OtherComponent } from './other/other.component';
     {
       path: 'handymen/6',
       component: AppliancesTechnicianComponent
-    },
-    {
-      path: 'handymen/7',
-      component: OtherComponent
     }
   ])
 ],
-  providers: [],
+  providers: [
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenServiceService,
+    multi: true
+}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

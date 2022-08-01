@@ -6,7 +6,7 @@ export class productsDB {
                 name: 'Plumbers',
                 avatar: 'assets/images/avatar.png'
             },
-            images: ['assets/images/products/plumber.jpg', 'assets/images/products/02-2.png', 'assets/images/products/02-3.png'],
+            images: ['assets/images/craftsnames/Plumbers.png', 'assets/images/products/02-2.png', 'assets/images/products/02-3.png'],
             name: 'Choose your handyman',
             price: 3000.00,
             rating: 4.8,
@@ -24,7 +24,7 @@ export class productsDB {
                 name: 'Carpenters',
                 avatar: 'assets/images/avatar.png'
             },
-            images: ['assets/images/products/plumber.jpg', 'assets/images/products/01-2.png', 'assets/images/products/01-3.png'],
+            images: ['assets/images/craftsnames/Carpenters.png', 'assets/images/products/01-2.png', 'assets/images/products/01-3.png'],
             name: 'Choose your handyman',
             price: 3000.00,
             rating: 4.8,
@@ -42,7 +42,7 @@ export class productsDB {
                 name: 'Mechanics',
                 avatar: 'assets/images/avatar.png'
             },
-            images: ['assets/images/products/plumber.jpg', 'assets/images/products/01-2.png', 'assets/images/products/01-3.png'],
+            images: ['assets/images/craftsnames/Mechanics.png', 'assets/images/products/01-2.png', 'assets/images/products/01-3.png'],
             name: 'Choose your handyman',
             price: 3000.00,
             rating: 4.8,
@@ -60,7 +60,7 @@ export class productsDB {
                 name: 'Painters',
                 avatar: 'assets/images/avatar.png'
             },
-            images: ['assets/images/paint2.jpg', 'assets/images/products/02-2.png', 'assets/images/products/02-3.png'],
+            images: ['assets/images/craftsnames/Painters.png', 'assets/images/products/02-2.png', 'assets/images/products/02-3.png'],
             name: 'Choose your handyman',
             price: 3000.00,
             rating: 4.8,
@@ -78,7 +78,7 @@ export class productsDB {
                 name: 'Electricians',
                 avatar: 'assets/images/avatar.png'
             },
-            images: ['assets/images/paint2.jpg', 'assets/images/products/01-2.png', 'assets/images/products/01-3.png'],
+            images: ['assets/images/craftsnames/Electricians.png', 'assets/images/products/01-2.png', 'assets/images/products/01-3.png'],
             name: 'Choose your handyman',
             price: 3000.00,
             rating: 4.8,
@@ -96,7 +96,7 @@ export class productsDB {
                 name: 'Appliances technician',
                 avatar: 'assets/images/avatar.png'
             },
-            images: ['assets/images/paint2.jpg', 'assets/images/products/02-2.png', 'assets/images/products/02-3.png'],
+            images: ['assets/images/craftsnames/AppliancesTechnicians.png', 'assets/images/products/02-2.png', 'assets/images/products/02-3.png'],
             name: 'Choose your handyman',
             price: 3000.00,
             rating: 4.8,
@@ -107,7 +107,7 @@ export class productsDB {
                 'Hudson',
                 'Lee'
             ],
-        },
+        }/* ,
         {
             id: 7,
             created_by: {
@@ -125,7 +125,7 @@ export class productsDB {
                 'Hudson',
                 'Lee'
             ],
-        },
+        }, *//* 
         {
             id: 8,
             created_by: {
@@ -161,6 +161,6 @@ export class productsDB {
                 'Hudson',
                 'Lee'
             ],
-        },
+        }, */
     ]
 }

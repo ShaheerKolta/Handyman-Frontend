@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { electriciansDB } from '../shared/data/electricians';
 
 @Component({
   selector: 'app-electricians',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./electricians.component.scss']
 })
 export class ElectriciansComponent implements OnInit {
-
-  constructor() { }
+  electricians = []
+  constructor() { 
+    this.electricians = electriciansDB.Electrician;
+  }
 
   ngOnInit(): void {
   }
