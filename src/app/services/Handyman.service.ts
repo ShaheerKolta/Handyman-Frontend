@@ -11,8 +11,16 @@ export class HandymanService {
   getHandymen() {
     return this.requestService.get(this.Controller) as Observable<any>;
   }
+  /////////////////////////////////////////////////////////////////////////////////////////
+  // TODO : Need to be Checked (Routing might be Wrong)
+  // ! Route Modified by Helmy
+  getHandymenByCraftID(id: number) {
+    return this.requestService.getById(this.Controller + '/' + 'Craft', id) as Observable<any>;
+  }
+  /////////////////////////////////////////////////////////////////////////////////////////
+
   createHandymen(formData) {
-    return this.requestService.post(this.Controller + '/' , formData) as Observable<any>;
+    return this.requestService.post(this.Controller + '/', formData) as Observable<any>;
   }
 
   editHandymen(id: number, formData) {

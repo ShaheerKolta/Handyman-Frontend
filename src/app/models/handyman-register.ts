@@ -1,6 +1,3 @@
-import { AnyNaptrRecord } from 'dns';
-import * as internal from 'stream';
-
 export class HandymanRegister {
   Handyman_SSN: Number;
   Handyman_Name: string;

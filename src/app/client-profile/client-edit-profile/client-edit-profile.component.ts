@@ -12,4 +12,8 @@ export class ClientEditProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
+  // Update  -> Put (name,)
+
 }

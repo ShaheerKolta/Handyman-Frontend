@@ -26,7 +26,7 @@ export class SignupComponent implements OnInit {
     private registerService: RegisterService,
     private fb: FormBuilder,
     private router: Router,
-    private requestService :RequestService
+    private requestService: RequestService
   ) {}
 
   ngOnInit(): void {
@@ -64,7 +64,7 @@ export class SignupComponent implements OnInit {
 
         Handyman_Photo: [null],
         Handyman_PhotoResource: [null],
-         Handyman_PhotoSource :[null],
+        Handyman_PhotoSource: [null],
         Handyman_ID_ImageResource: [null],
         Handyman_ID_Image: [null],
         Handyman_Criminal_RecordResource: [null],
@@ -80,7 +80,7 @@ export class SignupComponent implements OnInit {
         ],
         Password: ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(100)])],
         CPassword: ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(100)])],
-           agree: [false, Validators.compose([Validators.required])],
+        agree: [false, Validators.compose([Validators.required])]
       },
       {
         validator: ConfirmPasswordValidator.MatchPassword
@@ -177,6 +177,4 @@ export class SignupComponent implements OnInit {
     const control = this.formGroup.controls[controlName];
     return control.dirty || control.touched;
   }
-  
 }
-
