@@ -27,15 +27,12 @@ export class RequestComponent implements OnInit {
     debugger;
     this.initForm();
   }
-
   submit() {
-    //this.initForm();
-    console.log(this.formGroup.value);
-    this.createRequest(this.formGroup.value).subscribe(res => {
+    this.initForm();
+    this.createRequest(this.formGroup.valueChanges).subscribe(res => {
       debugger;
     }),
       err => {};
-    debugger;
   }
   initForm() {
     debugger;
@@ -43,7 +40,7 @@ export class RequestComponent implements OnInit {
       client_ID: [null, Validators.compose([Validators.required])],
       handyman_SSN: [null, Validators.compose([Validators.required])],
       Request_Date: [null, Validators.compose([Validators.required])],
-      method: [null, Validators.compose([Validators.required])]
+      payment: [null, Validators.compose([Validators.required])]
     });
   }
 

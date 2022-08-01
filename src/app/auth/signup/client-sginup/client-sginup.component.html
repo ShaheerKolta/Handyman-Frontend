@@ -18,12 +18,12 @@
               placeholder="Name"
               formControlName="Client_name"
             />
-            <div
+            <!-- <div
             class="invalid-feedback"
             *ngIf="controlHasError('required', 'Client_name')">
 
           <span >Name Is Required</span>
-          </div>
+          </div> -->
           </div>
           <div class="mb-4 mt-6">
             <label class="block text-gray-700 text-sm font-semibold mb-2" for="Client_Mobile">  Phone Number </label>
@@ -32,21 +32,21 @@
               id="Client_Mobile"
               type="number"
               placeholder="Phone number"
-              placeholder="Name"
+              placeholder="Phone Number"
               formControlName="Client_Mobile"
             />
-            <div
+            <!-- <div
             class="invalid-feedback"
             *ngIf="controlHasError('required', 'Client_Mobile')">
 
           <span >Mobile Is Required</span>
-          </div>
-          <div
+          </div> -->
+          <!-- <div
           class="invalid-feedback"
           *ngIf="controlHasError('maxLength', 'Handyman_Mobile')">
 
         <span >Mobile  must be less than 11 digits</span>
-        </div>
+        </div> -->
           
 
           </div>
@@ -58,27 +58,28 @@
               id="Client_Address"
               type="text"
               placeholder="Client_Address"
+              formControlName="Client_Address"
+
             />
           </div>
-          <div
+          <!-- <div
           class="invalid-feedback"
           *ngIf="controlHasError('required', 'Client_Address')">
 
         <span >Address is Required </span>
-        </div>
+        </div> -->
 
           <div class="mb-6 mt-6">
             <select
               name="Region_ID"
               class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               id="Region_ID"
+              formControlName="Region_ID"
+
+
             >
-              <option>Region</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+            <option *ngFor="let region of Regions" value="{{ region.region_ID }}">{{ region.region_Name }}</option>
+              
             </select>
             
             
@@ -92,18 +93,18 @@
               placeholder="Email address"
               formControlName="Client_Email"
             />
-            <div
+            <!-- <div
             class="invalid-feedback"
             *ngIf="controlHasError('required', 'Client_Email')">
 
           <span >Email Is Required</span>
-          </div>
-          <div
+          </div> -->
+          <!-- <div
           class="invalid-feedback"
           *ngIf="controlHasError('pattern', 'Client_Email')">
 
         <span >Email not in correct format</span>
-        </div>
+        </div> -->
           </div>
     
           <div class="mb-6 mt-6">
@@ -126,12 +127,12 @@
               placeholder="Conformation password"
               formControlName="CPassword"
             />
-            <div
+            <!-- <div
             class="invalid-feedback"
             *ngIf="controlHasError('ConfirmPassword', 'CPassword')">
 
           <span >password not match</span>
-          </div>
+          </div> -->
           </div>
           <div class="flex items-center">
             <input
@@ -146,6 +147,7 @@
             <button
               class="w-full bg-gray-800 hover:bg-grey-900 text-white text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline h-10"
               type="submit"
+              (click)="submit()"
             >
               Sign up
             </button>
