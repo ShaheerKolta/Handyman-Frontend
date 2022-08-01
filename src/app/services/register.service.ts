@@ -1,21 +1,23 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ConfirmPasswordValidator } from 'src/app/auth/signup/confirm-password.validator';
+import { ClientService } from './Client.service';
+import { HandymanService } from './Handyman.service';
 import { RequestService } from './request.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
-  Controller = '/Identity';
+  //Controller = '/Identity';
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$';
-  constructor(private requestService: RequestService) {}
+  constructor(private requestService: RequestService, private clientservice: ClientService, private handymanservice:HandymanService) {}
 
   handymanRegisterForm: FormGroup = new FormGroup({
     //Id :new FormControl(0),
     Handyman_Name: new FormControl(null, Validators.required),
     Handyman_SSN: new FormControl(null),
-    Regions: new FormControl(null),
+    //Regions: new FormControl(null),
     Handyman_Photo: new FormControl(''),
     Handyman_ID_Image: new FormControl(''),
     Handyman_Criminal_Record: new FormControl(''),
@@ -24,7 +26,7 @@ export class RegisterService {
     Handyman_Email: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
     Handyman_Mobile: new FormControl('', Validators.compose([Validators.maxLength(11), Validators.required])),
     Password: new FormControl('', Validators.required),
-    CPassword: new FormControl('', [Validators.required])
+    //CPassword: new FormControl('', [Validators.required])
   });
 
   clientRegisterForm: FormGroup = new FormGroup({
@@ -42,8 +44,8 @@ export class RegisterService {
     this.handymanRegisterForm.setValue({
       Handyman_Name: '',
       Handyman_SSN: null,
-      Regions: null,
-      Handyman_Email: '',
+      //Regions: null,
+      //Handyman_Email: '',
       Handyman_Mobile: '',
       Handyman_ID_Image: '',
       Handyman_Photo: '',
@@ -68,9 +70,12 @@ export class RegisterService {
   }
 
   Createregister(formData) {
-    return this.requestService.post('/Register/Handyman', formData);
+    return this.requestService.post('/Handyman/register', formData);
   }
   UploadFile(formData, ssn) {
     return this.requestService.post('/Handyman/UploadFile?ssn=' + ssn, formData);
+  }
+  Createclientregister(formData) {
+    return this.requestService.post('/Client', formData);
   }
 }
