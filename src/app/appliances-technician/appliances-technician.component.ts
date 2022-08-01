@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { appliancesTechniciansDB } from '../shared/data/appliances-technicians';
 
 @Component({
   selector: 'app-appliances-technician',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./appliances-technician.component.scss']
 })
 export class AppliancesTechnicianComponent implements OnInit {
+  appliancesTechnicians = []
 
-  constructor() { }
+  constructor() { 
+    this.appliancesTechnicians = appliancesTechniciansDB.AppliancesTechnician;
+  }
 
   ngOnInit(): void {
   }

@@ -12,7 +12,7 @@ export class HandymanService {
     return this.requestService.get(this.Controller) as Observable<any>;
   }
   createHandymen(formData) {
-    return this.requestService.post(this.Controller + '/', formData) as Observable<any>;
+    return this.requestService.post(this.Controller + '/' , formData) as Observable<any>;
   }
 
   editHandymen(id: number, formData) {

@@ -1,7 +1,7 @@
 <div class="login__page" [style.background-image]="'url(assets/images/login-bg.jpg)'">
   <div class="login__row min-h-screen">
     <div class="login__hero flex flex-col justify-center items-center py-10 px-4 sm:px-8 xl:px-20 text-white">
-      <a [routerLink]="['']" class="w-48 inline-block"><img src="assets/images/logo.png" alt="Lieblings" /></a>
+      <a [routerLink]="['']" class="w-48 inline-block"><h1>Sallahly</h1></a>
       <h2 class="text-center mt-6">TO KEEP CONNECTED WITH LARGEST IN THE WORLD</h2>
     </div>
     <div class="login__content p-4 sm:p-8 flex flex-col justify-center bg-accent">
@@ -30,9 +30,9 @@
               placeholder="Name"
               formControlName="Handyman_Name"
             />
-            <div class="invalid-feedback" *ngIf="controlHasError('required', 'Handyman_Name')">
+            <!-- <div class="invalid-feedback" *ngIf="controlHasError('required', 'Handyman_Name')">
               <span>Name Is Required</span>
-            </div>
+            </div> -->
           </div>
           <div class="mb-4 mt-6">
             <label class="block text-gray-700 text-sm font-semibold mb-2" for="Handyman_Mobile"> Phone Number </label>
@@ -56,12 +56,12 @@
               placeholder="Phone number"
               formControlName="Handyman_Mobile"
             />
-            <div class="invalid-feedback" *ngIf="controlHasError('required', 'Handyman_Mobile')">
+            <!-- <div class="invalid-feedback" *ngIf="controlHasError('required', 'Handyman_Mobile')">
               <span>Mobile Is Required</span>
             </div>
             <div class="invalid-feedback" *ngIf="controlHasError('maxLength', 'Handyman_Mobile')">
               <span>Mobile must be less than 11 digits</span>
-            </div>
+            </div> -->
           </div>
           <div class="mb-4 mt-6">
             <label class="block text-gray-700 text-sm font-semibold mb-2" for="Handyman_SSN"> SSN </label>
@@ -133,7 +133,7 @@
               type="text"
               placeholder="Photo"
               formControlName="Handyman_Photo"
-            />
+            /> 
             <!-- (change)="onFileChange($event)" -->
           </div>
           <div class="mb-6 mt-6">
@@ -159,7 +159,7 @@
               placeholder="ID Image"
               (change)="onFileChangeId($event)"
             />
-          </div>
+          </div> 
           <div class="mb-6 mt-6">
             <label class="block text-gray-700 text-sm font-semibold mb-2" for="Handyman_Criminal_Record">
               Criminal Record</label
@@ -185,7 +185,7 @@
               placeholder="Criminal Record"
               (change)="onFileChangeCrimnal($event)"
             />
-          </div>
+          </div> 
           <div class="mb-6 mt-6">
             <select
               name="CraftID"
@@ -210,7 +210,7 @@
               <option *ngFor="let craft of crafts" value="{{ craft.craft_ID }}">{{ craft.craft_Name }}</option>
             </select>
           </div>
-          <div class="mb-6 mt-6">
+           <!-- <div class="mb-6 mt-6">
             <select
               name="Regions"
               class="
@@ -233,37 +233,8 @@
             >
               <option *ngFor="let region of Regions" value="{{ region.region_ID }}">{{ region.region_Name }}</option>
             </select>
-          </div>
-          <div class="mb-4 mt-6">
-            <label class="block text-gray-700 text-sm font-semibold mb-2" for="Handyman_Email"> Email </label>
-            <input
-              class="
-                text-sm
-                appearance-none
-                rounded
-                w-full
-                py-2
-                px-3
-                text-gray-700
-                bg-gray-100
-                leading-tight
-                focus:outline-none
-                focus:shadow-outline
-                h-10
-              "
-              id="Handyman_Email"
-              type="text"
-              placeholder="Email address"
-              formControlName="Handyman_Email"
-            />
-            <div class="invalid-feedback" *ngIf="controlHasError('required', 'Handyman_Email')">
-              <span>Email Is Required</span>
-            </div>
-            <div class="invalid-feedback" *ngIf="controlHasError('pattern', 'Handyman_Email')">
-              <span>Email not in correct format</span>
-            </div>
-          </div>
-
+          </div> -->
+ 
           <div class="mb-6 mt-6">
             <label class="block text-gray-700 text-sm font-semibold mb-2" for="password"> Password </label>
             <input
@@ -287,7 +258,7 @@
               placeholder="Password"
               formControlName="Password"
             />
-          </div>
+          </div> 
 
           <div class="mb-6 mt-6">
             <label class="block text-gray-700 text-sm font-semibold mb-2" for="password2">
@@ -314,9 +285,9 @@
               placeholder="Conformation password"
               formControlName="CPassword"
             />
-            <div class="invalid-feedback" *ngIf="controlHasError('ConfirmPassword', 'CPassword')">
+            <!-- <div class="invalid-feedback" *ngIf="controlHasError('ConfirmPassword', 'CPassword')">
               <span>password not match</span>
-            </div>
+            </div> -->
           </div>
           <div class="flex items-center">
             <input

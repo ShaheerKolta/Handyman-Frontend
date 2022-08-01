@@ -6,6 +6,7 @@ import { RegisterService } from 'src/app/services/register.service';
 import { ConfirmPasswordValidator } from './confirm-password.validator';
 import { RxFormGroup, RxFormBuilder, FormGroupExtension } from '@rxweb/reactive-form-validators';
 import { RegionService } from 'src/app/services/Region.service';
+import { RequestService } from 'src/app/services/request.service';
 
 @Component({
   selector: 'll-signup',
@@ -24,13 +25,14 @@ export class SignupComponent implements OnInit {
     private craftService: CraftService,
     private registerService: RegisterService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private requestService :RequestService
   ) {}
 
   ngOnInit(): void {
     this.initForm();
     this.GetCrafts();
-    this.GetRegions();
+    //this.GetRegions();
   }
   GetCrafts() {
     this.craftService.getCrafts().subscribe(
@@ -40,14 +42,14 @@ export class SignupComponent implements OnInit {
       err => {}
     );
   }
-  GetRegions() {
-    this.RegionService.getRegion().subscribe(
-      reg => {
-        this.Regions = reg;
-      },
-      err => {}
-    );
-  }
+  // GetRegions() {
+  //   this.RegionService.getRegion().subscribe(
+  //     reg => {
+  //       this.Regions = reg;
+  //     },
+  //     err => {}
+  //   );
+  // }
   loadForm() {
     this.formGroup = this.registerService.handymanRegisterForm;
     // this.initForm();
@@ -58,18 +60,17 @@ export class SignupComponent implements OnInit {
         Handyman_Name: [null, Validators.compose([Validators.required])],
         Handyman_SSN: [null],
 
-        Regions: [null],
+        //Regions: [null],
 
         Handyman_Photo: [null],
         Handyman_PhotoResource: [null],
-        // Handyman_PhotoSource :[null],
+         Handyman_PhotoSource :[null],
         Handyman_ID_ImageResource: [null],
         Handyman_ID_Image: [null],
         Handyman_Criminal_RecordResource: [null],
         Handyman_Criminal_Record: [null],
         CraftID: [null, Validators.compose([Validators.required])],
         Handyman_Fixed_Rate: [null, Validators.compose([Validators.required])],
-        Handyman_Email: ['', Validators.compose([Validators.required, Validators.pattern(this.emailPattern)])],
         Handyman_Mobile: [
           '',
           Validators.compose([
@@ -78,8 +79,8 @@ export class SignupComponent implements OnInit {
           ])
         ],
         Password: ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(100)])],
-        CPassword: ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(100)])]
-        //   agree: [false, Validators.compose([Validators.required])],
+        CPassword: ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(100)])],
+           agree: [false, Validators.compose([Validators.required])],
       },
       {
         validator: ConfirmPasswordValidator.MatchPassword
@@ -111,48 +112,49 @@ export class SignupComponent implements OnInit {
       });
     }
   }
-  Upload() {
-    const formData = new FormData();
-    formData.append('files', this.formGroup.get('Handyman_PhotoResource').value);
-    formData.append('files', this.formGroup.get('Handyman_ID_ImageResource').value);
-    formData.append('files', this.formGroup.get('Handyman_Criminal_RecordResource').value);
+  // Upload() {
+  //   const formData = new FormData();
+  //   formData.append('files', this.formGroup.get('Handyman_PhotoResource').value);
+  //   formData.append('files', this.formGroup.get('Handyman_ID_ImageResource').value);
+  //   formData.append('files', this.formGroup.get('Handyman_Criminal_RecordResource').value);
 
-    this.registerService.UploadFile(formData, this.ssn).subscribe(
-      res => {
-        this.router.navigate(['/']);
-      },
-      err => {}
-    );
-  }
+  //   this.registerService.UploadFile(formData, this.ssn).subscribe(
+  //     res => {
+  //       this.router.navigate(['/']);
+  //     },
+  //     err => {}
+  //   );
+  // }
   submit() {
     debugger;
-    var namecrimnal =
-      this.formGroup.controls['Handyman_Criminal_RecordResource'].value == null
-        ? null
-        : this.formGroup.controls['Handyman_Criminal_RecordResource'].value.name;
-    var namephoto =
-      this.formGroup.controls['Handyman_PhotoResource'].value == null
-        ? null
-        : this.formGroup.controls['Handyman_PhotoResource'].value.name;
-    var Handyman_ID_Image =
-      this.formGroup.controls['Handyman_ID_ImageResource'].value == null
-        ? null
-        : this.formGroup.controls['Handyman_ID_ImageResource'].value.name;
+    // var namecrimnal =
+    //   this.formGroup.controls['Handyman_Criminal_RecordResource'].value == null
+    //     ? null
+    //     : this.formGroup.controls['Handyman_Criminal_RecordResource'].value.name;
+    // var namephoto =
+    //   this.formGroup.controls['Handyman_PhotoResource'].value == null
+    //     ? null
+    //     : this.formGroup.controls['Handyman_PhotoResource'].value.name;
+    // var Handyman_ID_Image =
+    //   this.formGroup.controls['Handyman_ID_ImageResource'].value == null
+    //     ? null
+    //     : this.formGroup.controls['Handyman_ID_ImageResource'].value.name;
 
-    this.formGroup.patchValue({
-      Handyman_Criminal_Record: namecrimnal,
-      Handyman_Photo: namephoto,
-      Handyman_ID_Image: Handyman_ID_Image
-    });
-    this.registerService.Createregister(this.formGroup.value).subscribe(
-      res => {
-        debugger;
-        this.ssn = this.formGroup.controls['Handyman_SSN'].value;
-        this.Upload();
-        debugger
-      },
-      err => {}
-    );
+    // this.formGroup.patchValue({
+    //   Handyman_Criminal_Record: namecrimnal,
+    //   Handyman_Photo: namephoto,
+    //   Handyman_ID_Image: Handyman_ID_Image
+    // });
+    this.requestService.post('/Handyman/register', this.formGroup.value).subscribe();
+    // this.registerService.Createregister(this.formGroup.value).subscribe(
+    //   res => {
+    //     debugger;
+    //     // this.ssn = this.formGroup.controls['Handyman_SSN'].value;
+    //     // this.Upload();
+    //     debugger
+    //   },
+    //   err => {}
+    // );
   }
 
   // helpers for View
@@ -175,4 +177,6 @@ export class SignupComponent implements OnInit {
     const control = this.formGroup.controls[controlName];
     return control.dirty || control.touched;
   }
+  
 }
+

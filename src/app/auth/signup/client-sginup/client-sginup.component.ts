@@ -2,9 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CraftService } from 'src/app/services/craft.service';
+import { ClientRegister} from 'src/app/models/client-register';
 import { RegisterService } from 'src/app/services/register.service';
 import { ConfirmPasswordValidator } from '../confirm-password.validator';
 //import { ConfirmPasswordValidator } from './confirm-password.validator';
+import { RegionService } from 'src/app/services/Region.service';
+
 
 @Component({
   selector: 'client-ll-signup',
@@ -13,14 +16,25 @@ import { ConfirmPasswordValidator } from '../confirm-password.validator';
 })
 export class ClientSginupComponent implements OnInit {
   formGroup:FormGroup;
+  Regions;
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 
-  constructor(private registerService:RegisterService,private fb:FormBuilder,private router:Router) { }
+  constructor(private registerService:RegisterService,private fb:FormBuilder,private router:Router, private RegionService : RegionService) { }
 
   ngOnInit(): void {
     this.initForm();
+    this.GetRegions();
+    debugger
 
   }
+  GetRegions() {
+    debugger
+    this.RegionService.getRegion().subscribe(
+      reg => {
+        this.Regions = reg;
+      },
+      err => {}
+    );}
   
   loadForm() {
     this.formGroup =this.registerService.clientRegisterForm;
@@ -74,6 +88,16 @@ export class ClientSginupComponent implements OnInit {
     {
       validator: ConfirmPasswordValidator.MatchPassword,
     }
+  );
+}
+submit(){
+  this.registerService.Createclientregister(this.formGroup.value).subscribe(
+    res => {
+      debugger;
+    
+      debugger
+    },
+    err => {}
   );
 }
   // helpers for View

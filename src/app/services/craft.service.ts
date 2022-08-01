@@ -6,7 +6,7 @@ import { RequestService } from './request.service';
   providedIn: 'root'
 })
 export class CraftService {
-  Controller = '/Craft/FindCrafts';
+  Controller = '/Craft';
   constructor(private requestService: RequestService) {}
   getCrafts() {
     return this.requestService.get(this.Controller) as Observable<any>;
