@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { mechanicsDB } from '../shared/data/mechanics';
 
 @Component({
   selector: 'app-mechanics',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mechanics.component.scss']
 })
 export class MechanicsComponent implements OnInit {
-
-  constructor() { }
+  mechanics = []
+  constructor() {
+    this.mechanics = mechanicsDB.Mechanic;
+   }
 
   ngOnInit(): void {
   }

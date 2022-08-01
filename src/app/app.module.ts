@@ -64,10 +64,6 @@ import { OtherComponent } from './other/other.component';
     {
       path: 'handymen/6',
       component: AppliancesTechnicianComponent
-    },
-    {
-      path: 'handymen/7',
-      component: OtherComponent
     }
   ])
 ],

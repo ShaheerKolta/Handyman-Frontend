@@ -10,132 +10,34 @@
           <h3 class="ll-section-head__heaidng">Carpenters</h3>
           <h4 class="ll-section-head__subheading">Choose Your Handyman</h4>
         </div>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint1.jpg" class="card-img-top" alt="image">
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is a Handyman</p>
-                <a href="/products/1">Profile</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint2.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is profile 2 </p>
-                <a href="/products/2">Profile</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint1.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is profile 3</p>
-                <a href="/products/3">Profile</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint2.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is profile 4</p>
-                <a href="/products/4">Profile</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint1.jpg" class="card-img-top" alt="image">
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is a Handyman</p>
-                <a href="/products/1">Profile</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint2.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is profile 2 </p>
-                <a href="/products/2">Profile</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint1.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is profile 3</p>
-                <a href="/products/3">Profile</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint2.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is profile 4</p>
-                <a href="/products/4">Profile</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint1.jpg" class="card-img-top" alt="image">
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is a Handyman</p>
-                <a href="/products/1">Profile</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint2.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is profile 2 </p>
-                <a href="/products/2">Profile</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint1.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is profile 3</p>
-                <a href="/products/3">Profile</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint2.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is profile 4</p>
-                <a href="/products/4">Profile</a>
-              </div>
-            </div>
+        <div class="grid grid-cols-12 gap-6 xxl:gap-8">
+          <div *ngFor="let carpenter of carpenters" class="col-span-12 md:col-span-6 xl:col-span-4">
+            <mat-card class="ll-product">
+              <img mat-card-image [src]="carpenter?.images[0]" alt="{{ carpenter.name }}" style="width: 100%; margin: 0 0 20px" />
+              <mat-card-content class="flex">
+                <div class="flex-none w-10">
+                  <img src="{{ carpenter?.created_by?.avatar }}" alt="product?.created_by?.name" />
+                </div>
+                <div class="flex-grow pl-3">
+                  <h4 class="ll-product__creator">{{ carpenter?.created_by?.name }}</h4>
+                  <!-- <h2 class="ll-product__name">
+                    <a [routerLink]="['/handymen', carpenter.id]">Go to handyman</a>
+                  </h2> -->
+                  <div class="flex justify-between mt-5">
+                    <div class="ll-product__price-label">Prices:</div>
+                    <div class="ll-product__price text-accent font-bold">€{{ carpenter.price }}</div>
+                  </div>
+                </div>
+              </mat-card-content>
+              <mat-card-actions class="ll-product__action flex justify-between">
+                <div class="flex-1 text-center flex items-center justify-center">
+                  <mat-icon color="warn">star</mat-icon> {{ carpenter.rating }}/5
+                </div>
+                <div class="flex-1 text-center">
+                  <a [routerLink]="['/products', carpenter.id]" mat-raised-button color="warn" class="px-4">Details</a>
+                </div>
+              </mat-card-actions>
+            </mat-card>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { plumberssDB } from '../shared/data/plumbers';
 
 
 @Component({
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./plumber-component.component.scss']
 })
 export class PlumberComponentComponent implements OnInit {
+  plumbers = []
 
-  constructor() { }
+  constructor() {
+    this.plumbers = plumberssDB.Plumber;
+   }
 
   ngOnInit(): void {
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { carpentersDB } from '../shared/data/carpenters';
 
 @Component({
   selector: 'app-carpenters',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carpenters.component.scss']
 })
 export class CarpentersComponent implements OnInit {
-
-  constructor() { }
+  carpenters = []
+  constructor() {
+    this.carpenters = carpentersDB.Carpenter;
+   }
 
   ngOnInit(): void {
   }
