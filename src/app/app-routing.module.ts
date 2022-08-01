@@ -30,6 +30,7 @@ const routes: Routes = [
     children: baseLayoutRouting
   },
   {
+    // Random Comment 
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
