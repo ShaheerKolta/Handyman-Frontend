@@ -21,7 +21,6 @@ export class CarpentersComponent implements OnInit {
     this.HandymanService.getHandymenByCraftID(data).subscribe(
       res => {
         this.handymanCrafts = res;
-        console.log(this.handymanCrafts[0]);
       },
       err => {}
     );
