@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { __values } from 'tslib';
 import { GeneralHandyman } from '../models/General_Handyman';
 import { RequestService } from './request.service';
 
@@ -8,8 +9,8 @@ import { RequestService } from './request.service';
 })
 export class HandymanService {
   private value: BehaviorSubject<any>;
-  data;
-  currentUser: Subject<Number> = new BehaviorSubject<Number>(null);
+  data : Number = 12;
+  currentValue: Subject<Number> = new BehaviorSubject<Number>(this.data);
 
   Controller = '/Handyman';
   constructor(private requestService: RequestService) {}
@@ -21,13 +22,14 @@ export class HandymanService {
   //private data = new Subject<number>();
   setSSN(ssn: Number) {
     debugger;
-    this.value.next(ssn);
+    this.data = ssn;
+    this.currentValue.next(ssn);
   }
   /////////////////////////////////////////////////////////////////////////////////////////
   // ! this is a getter should be replaced
   getSSN() {
     debugger;
-    return this.value.asObservable();
+    return this.currentValue.asObservable();
   }
 
   /////////////////////////////////////////////////////////////////////////////////////////
