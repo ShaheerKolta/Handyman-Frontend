@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 export class RequestService {
   readonly rootUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient ) {}
+  constructor(private http: HttpClient) {}
   post(controller: string, obj) {
     return this.http.post(this.rootUrl + controller, obj);
   }
@@ -25,7 +25,6 @@ export class RequestService {
   getById(controller: string, id: number) {
     return this.http.get(this.rootUrl + controller + '/' + id);
   }
-  
 
   getByMethod(controller: string, method: Number) {
     return this.http.get(this.rootUrl + controller + '/' + Boolean);

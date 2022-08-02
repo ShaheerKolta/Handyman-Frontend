@@ -1,21 +1,43 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { GeneralHandyman } from '../models/General_Handyman';
 import { RequestService } from './request.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HandymanService {
+  private value: BehaviorSubject<any>;
+  data;
+  currentUser: Subject<string> = new BehaviorSubject<string>(null);
+
   Controller = '/Handyman';
   constructor(private requestService: RequestService) {}
   getHandymen() {
     return this.requestService.get(this.Controller) as Observable<any>;
   }
   /////////////////////////////////////////////////////////////////////////////////////////
+  // ! this is a setter should be replaced
+  //private data = new Subject<number>();
+  setSSN(ssn: string) {
+    debugger;
+    this.value.next(ssn);
+  }
+  /////////////////////////////////////////////////////////////////////////////////////////
+  // ! this is a getter should be replaced
+  getSSN() {
+    debugger;
+    return this.value.asObservable();
+  }
+
+  /////////////////////////////////////////////////////////////////////////////////////////
   // TODO : Need to be Checked (Routing might be Wrong)
   // ! Route Modified by Helmy
   getHandymenByCraftID(id: number) {
     return this.requestService.getById(this.Controller + '/' + 'Craft', id) as Observable<any>;
+  }
+  getHandymanProfileBySSN(id: number) {
+    return this.requestService.getById(this.Controller, id) as Observable<any>;
   }
   /////////////////////////////////////////////////////////////////////////////////////////
 
