@@ -19,6 +19,7 @@ import { AppliancesTechnicianComponent } from './appliances-technician/appliance
 import { OtherComponent } from './other/other.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenServiceService } from './services/token-service.service';
+import { ClientProfileComponent } from './client-profile/client-profile.component';
 
 @NgModule({
   declarations: [AppComponent, 
@@ -66,6 +67,10 @@ import { TokenServiceService } from './services/token-service.service';
     {
       path: 'handymen/6',
       component: AppliancesTechnicianComponent
+    },
+    {
+      path: 'client-profile',
+      component: ClientProfileComponent
     }
   ])
 ],
