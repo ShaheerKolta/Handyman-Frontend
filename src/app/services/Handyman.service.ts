@@ -9,7 +9,7 @@ import { RequestService } from './request.service';
 export class HandymanService {
   private value: BehaviorSubject<any>;
   data;
-  currentUser: Subject<string> = new BehaviorSubject<string>(null);
+  currentUser: Subject<Number> = new BehaviorSubject<Number>(null);
 
   Controller = '/Handyman';
   constructor(private requestService: RequestService) {}
@@ -19,7 +19,7 @@ export class HandymanService {
   /////////////////////////////////////////////////////////////////////////////////////////
   // ! this is a setter should be replaced
   //private data = new Subject<number>();
-  setSSN(ssn: string) {
+  setSSN(ssn: Number) {
     debugger;
     this.value.next(ssn);
   }

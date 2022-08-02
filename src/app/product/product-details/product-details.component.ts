@@ -15,19 +15,18 @@ export class ProductDetailsComponent implements OnInit {
   SSN;
   Handyman;
   dataIsReady = true;
-  errorMessage: string = "500 SERVER ERROR, CONTACT ADMINISTRATOR!!!!";
-
+  errorMessage: string = '500 SERVER ERROR, CONTACT ADMINISTRATOR!!!!';
 
   public subscription: Subscription;
 
   constructor(private HandymanService: HandymanService) {}
 
   ngOnInit() {
-    // this.HandymanService.getSSN().subscribe(newValue => {
-    //   this.SSN = newValue;
-    // });
-    // console.log(this.SSN);
-    this.getHandymanProfileBySSNMethod(12);
+    this.HandymanService.getSSN().subscribe(newValue => {
+      this.SSN = newValue;
+    });
+    console.log(this.SSN);
+    this.getHandymanProfileBySSNMethod(this.SSN);
     this.subscription = this.HandymanService.getSSN().subscribe(msg => (this.SSN = msg));
   }
 

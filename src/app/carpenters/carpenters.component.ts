@@ -17,7 +17,7 @@ export class CarpentersComponent implements OnInit {
   craftID: number = 1;
   // Using model in Trasfrering Data
   handymanCrafts;
-  public SSN: string;
+  public SSN: Number;
   private path;
   public subscription: Subscription;
 
@@ -31,7 +31,7 @@ export class CarpentersComponent implements OnInit {
     this.HandymanService.setSSN(this.SSN);
   }
 
-  onSubmit(ssnData: string) {
+  onSubmit(ssnData: Number) {
     // //this.router.navigate(['/planning/capplanning'], {
     //   skipLocationChange: true,
     // });
