@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClientEditProfileComponent } from 'src/client-profile/client-edit-profile/client-edit-profile.component';
+import { RequestDetailsComponent } from './Request/request-details/request-details.component';
 import { BaseLayoutComponent } from './shared/components/layouts/base-layout/base-layout.component';
 
 const baseLayoutRouting: Routes = [
@@ -45,6 +46,10 @@ const routes: Routes = [
   {
     path: 'client-edit-profile',
     component: ClientEditProfileComponent
+  },
+  {
+    path: 'requestdetails',
+    component: RequestDetailsComponent
   }
   
 ];

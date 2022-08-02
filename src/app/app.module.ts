@@ -19,6 +19,7 @@ import { AppliancesTechnicianComponent } from './appliances-technician/appliance
 import { OtherComponent } from './other/other.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenServiceService } from './services/token-service.service';
+import { RequestDetailsComponent } from './Request/request-details/request-details.component';
 
 @NgModule({
   declarations: [AppComponent, 
@@ -28,7 +29,7 @@ import { TokenServiceService } from './services/token-service.service';
                  CarpentersComponent, 
                  ElectriciansComponent, 
                  PaintersComponent, 
-                 MechanicsComponent, AppliancesTechnicianComponent, OtherComponent],
+                 MechanicsComponent, AppliancesTechnicianComponent, OtherComponent, RequestDetailsComponent],
   imports: [BrowserModule, 
             AppRoutingModule, 
             BrowserAnimationsModule, 
