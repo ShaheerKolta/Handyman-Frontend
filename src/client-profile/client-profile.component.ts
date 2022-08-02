@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientService } from '../services/Client.service';
-import { RequestsService } from '../services/RequestS.service';
+import { ClientService } from 'src/app/services/Client.service';
+import { RequestsService } from 'src/app/services/RequestS.service';
 
 @Component({
   selector: 'app-client-profile',
