@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClientEditProfileComponent } from 'src/client-profile/client-edit-profile/client-edit-profile.component';
+import { HistoryOfRequestsComponent } from './history-of-requests/history-of-requests.component';
 import { RequestDetailsComponent } from './Request/request-details/request-details.component';
 import { BaseLayoutComponent } from './shared/components/layouts/base-layout/base-layout.component';
 
@@ -31,7 +32,7 @@ const routes: Routes = [
     children: baseLayoutRouting
   },
   {
-    // Random Comment 
+    // Random Comment
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
@@ -50,8 +51,11 @@ const routes: Routes = [
   {
     path: 'requestdetails',
     component: RequestDetailsComponent
+  },
+  {
+    path: 'requestHistory',
+    component: HistoryOfRequestsComponent
   }
-  
 ];
 
 @NgModule({
