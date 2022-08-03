@@ -8,30 +8,12 @@ import { RequestService } from './request.service';
   providedIn: 'root'
 })
 export class HandymanService {
-  private value: BehaviorSubject<any>;
-  data : Number = 12;
-  currentValue: Subject<Number> = new BehaviorSubject<Number>(this.data);
 
   Controller = '/Handyman';
   constructor(private requestService: RequestService) {}
   getHandymen() {
     return this.requestService.get(this.Controller) as Observable<any>;
   }
-  /////////////////////////////////////////////////////////////////////////////////////////
-  // ! this is a setter should be replaced
-  //private data = new Subject<number>();
-  setSSN(ssn: Number) {
-    debugger;
-    this.data = ssn;
-    this.currentValue.next(ssn);
-  }
-  /////////////////////////////////////////////////////////////////////////////////////////
-  // ! this is a getter should be replaced
-  getSSN() {
-    debugger;
-    return this.currentValue.asObservable();
-  }
-
   /////////////////////////////////////////////////////////////////////////////////////////
   // TODO : Need to be Checked (Routing might be Wrong)
   // ! Route Modified by Helmy

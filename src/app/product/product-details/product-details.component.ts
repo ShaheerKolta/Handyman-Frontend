@@ -1,12 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { CarpentersComponent } from 'src/app/carpenters/carpenters.component';
+import { CommunicationLayerService } from 'src/app/communication-layer.service';
 import { GeneralHandyman } from 'src/app/models/General_Handyman';
+import { CommunicationService } from 'src/app/services/Communication.service';
 import { HandymanService } from 'src/app/services/Handyman.service';
 
 @Component({
   selector: 'll-product-details',
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss']
+  //providers: [CommunicationService]
 })
 export class ProductDetailsComponent implements OnInit {
   //Handyman;
@@ -19,15 +23,21 @@ export class ProductDetailsComponent implements OnInit {
 
   public subscription: Subscription;
 
-  constructor(private HandymanService: HandymanService) {}
+  constructor(private HandymanService: HandymanService, public communicationService: CommunicationLayerService) {}
+
+  // variable of carpenter to call it in profile (Product Details)
 
   ngOnInit() {
-    this.HandymanService.getSSN().subscribe(newValue => {
+    this.communicationService.getSSN().subscribe(newValue => {
       this.SSN = newValue;
     });
-    console.log(this.SSN);
+    debugger;
+    //this.subscription = this.HandymanService.getSSN().subscribe(msg => (this.SSN = msg));
+    this.communicationService.SSNStatus.subscribe((status: number) => (this.SSN = status));
+    this.communicationService.SSNStatus.unsubscribe();
+    //this.SSN = this.communicationService.getValue();
     this.getHandymanProfileBySSNMethod(this.SSN);
-    this.subscription = this.HandymanService.getSSN().subscribe(msg => (this.SSN = msg));
+    console.log(this.SSN);
   }
 
   test() {
@@ -41,7 +51,7 @@ export class ProductDetailsComponent implements OnInit {
     this.HandymanService.getHandymanProfileBySSN(data).subscribe(
       res => {
         this.Handyman = res;
-        console.log(res);
+        console.log('This is a Test', res);
       },
       err => {}
     );

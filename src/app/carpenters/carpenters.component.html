@@ -11,135 +11,20 @@
           <h3 class="ll-section-head__heaidng">Carpenters</h3>
           <h4 class="ll-section-head__subheading">Choose Your Handyman</h4>
         </div>
-        <div class="flex row row-cols-1 row-cols-md-3 g-4" *ngFor="let Handyman of handymanCrafts">
+        <div class=" row row-cols-1 row-cols-md-3 g-4 " *ngFor="let Handyman of handymanCrafts">
           <div class="col">
             <div class="card">
-              <img src="{{ Handyman.handyman_Photo }}" class="card-img-top" alt="image" />
+              <img src=" {{ Handyman.handyman_Photo }}" class="card-img-top" alt="image" />
               <div class="card-body">
                 <h5 class="card-title">{{ Handyman.handyman_Name }}</h5>
                 <p class="card-text text-danger">Fixed Price : {{ Handyman.handyman_Fixed_Rate }}</p>
                 <p class="card-text">Rating: {{ Handyman.rating }}</p>
                 <!-- Need modification if it's true Green light shows up  -->
-                <a href="/products/{{ Handyman.handyman_SSN }}" (click)="onSubmit(12)"> Profile </a>
+                <a href="/products/{{ Handyman.handyman_SSN }}" (click)="onSubmit(Handyman.handyman_SSN)"> Profile </a>
               </div>
             </div>
           </div>
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint2.jpg" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is profile 2</p>
-                <a href="/products/2">Profile</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint1.jpg" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is profile 3</p>
-                <a href="/products/3">Profile</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint2.jpg" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is profile 4</p>
-                <a href="/products/4">Profile</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br />
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint1.jpg" class="card-img-top" alt="image" />
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is a Handyman</p>
-                <a href="/products/1">Profile</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint2.jpg" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is profile 2</p>
-                <a href="/products/2">Profile</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint1.jpg" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is profile 3</p>
-                <a href="/products/3">Profile</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint2.jpg" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is profile 4</p>
-                <a href="/products/4">Profile</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br />
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint1.jpg" class="card-img-top" alt="image" />
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is a Handyman</p>
-                <a href="/products/1">Profile</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint2.jpg" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is profile 2</p>
-                <a href="/products/2">Profile</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint1.jpg" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is profile 3</p>
-                <a href="/products/3">Profile</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="assets/images/paint2.jpg" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Handyman</h5>
-                <p class="card-text">This is profile 4</p>
-                <a href="/products/4">Profile</a>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
 
