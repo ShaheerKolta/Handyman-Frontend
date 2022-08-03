@@ -12,15 +12,15 @@ requests;
   constructor(private requestService : RequestService, private requestsservice : RequestsService ) { }
 
   ngOnInit(): void {
-    this.GetRequests()
+   // this.getRequestById(1)
   }
-  GetRequests() {
-    this.requestsservice.getRequest().subscribe(
-      res => {
-        this.requests = res;
-      },
-      err => {}
-    );
-  }
+  // GetRequest() {
+  //   this.requestsservice.getRequestById(1).subscribe(
+  //     res => {
+  //       this.requests = res;
+  //     },
+  //     err => {}
+  //   );
+  // }
 
 }
