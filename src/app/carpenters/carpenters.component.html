@@ -11,10 +11,10 @@
           <h3 class="ll-section-head__heaidng">Carpenters</h3>
           <h4 class="ll-section-head__subheading">Choose Your Handyman</h4>
         </div>
-        <div class=" row row-cols-1 row-cols-md-3 g-4 " *ngFor="let Handyman of handymanCrafts">
-          <div class="col">
-            <div class="card">
-              <img src=" {{ Handyman.handyman_Photo }}" class="card-img-top" alt="image" />
+        <div class="flex row row-cols-1 row-cols-md-3 g-4 wrap" >
+          <div class="col-3" *ngFor="let Handyman of handymanCrafts">
+            <div class="card " >
+              <img src="{{ Handyman.handyman_Photo }}" class="card-img-top image" alt="image" />
               <div class="card-body">
                 <h5 class="card-title">{{ Handyman.handyman_Name }}</h5>
                 <p class="card-text text-danger">Fixed Price : {{ Handyman.handyman_Fixed_Rate }}</p>
