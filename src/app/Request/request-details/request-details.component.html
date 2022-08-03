@@ -34,7 +34,7 @@
                   Request Date:
                 </div>
                 <div class="ll-dataset__value">
-                  {{request.request.request_Date}}
+                  {{pipe.transform(request.request.request_Date,'M/d/yy, h:mm a')}}
                 </div>
               </div>
               <div class="ll-dataset mt-4">
@@ -42,7 +42,7 @@
                   Date of Creation:
                 </div>
                 <div class="ll-dataset__value">
-                  {{request.request.request_Order_Date}}
+                  {{pipe.transform(request.request.request_Order_Date,'M/d/yy, h:mm a')}}
                 </div>
               </div>
             </div>
@@ -110,7 +110,7 @@
                 <div class="ll-dataset__value">
                   {{request.request.handy_Review}}
                 </div>
-                <button class="text-blue-400 hover:text-accent ml-auto flex items-center" (click)="submit()">
+                <!-- <button class="text-blue-400 hover:text-accent ml-auto flex items-center" (click)="submit()">
                   <mat-icon class="_edit_icon mr-2">edit</mat-icon>
                   Edit
                 </button>
@@ -118,11 +118,11 @@
                   <div class="ll-dataset__value" *ngIf="editReview == true">
                     <input [(ngModel)]="rate" id="rate" name="rate">
                   </div>
-                  <!-- <div class="ll-dataset__value" *ngIf="editReview == true">
+                  <div class="ll-dataset__value" *ngIf="editReview == true">
                     <input formControlName="review">
-                  </div> -->
+                  </div>
                   <button type="submit" (click)="submit()">Submit</button>
-                </form>
+                </form> -->
               </div>
             </div>
           </div>

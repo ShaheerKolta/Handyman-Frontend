@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, Injectable, OnInit } from '@angular/core';
 //import { request } from 'http';
 import { FormBuilder, FormControl, FormGroup, FormsModule } from '@angular/forms';
@@ -18,6 +19,7 @@ request;
 formgroup:FormGroup
 editrequest;
 review;
+pipe = new DatePipe('en-US');
 rate:number =0;
 role = localStorage.getItem('role')==='Handyman'?true:false;
 status;
