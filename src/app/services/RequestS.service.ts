@@ -14,9 +14,13 @@ export class RequestsService {
   createRequest(formData) {
     return this.requestService.post(this.Controller + '/', formData) as Observable<any>;
   }
+  getRequestById(id:number)
+  {
+    return this.requestService.getById(this.Controller, id) as Observable<any>;
+  }
 
-  editRequest(id: number, formData) {
-    return this.requestService.put(this.Controller + '/', id, formData) as Observable<any>;
+  editRequest(id: number, request :[]) {
+    return this.requestService.put(this.Controller + '/', id, request) as Observable<any>;
   }
 
   deleteRequest(id) {
