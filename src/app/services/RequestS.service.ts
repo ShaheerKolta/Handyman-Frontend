@@ -15,11 +15,18 @@ export class RequestsService {
     return this.requestService.post(this.Controller + '/', formData) as Observable<any>;
   }
 
-  editRequest(id: number, formData) {
+  editRequest(id: Number, formData) {
     return this.requestService.put(this.Controller + '/', id, formData) as Observable<any>;
   }
 
   deleteRequest(id) {
     return this.requestService.delete(this.Controller + '/', id) as Observable<any>;
+  }
+
+  getRequestsByClientIDorHandySSN(id: Number, role: string) {
+    return this.requestService.getById(this.Controller + '/' + role + '/', id) as Observable<any>;
+  }
+  getRequestByID(id: Number) {
+    return this.requestService.getById(this.Controller, id) as Observable<any>;
   }
 }

@@ -51,10 +51,6 @@ const routes: Routes = [
   {
     path: 'requestdetails',
     component: RequestDetailsComponent
-  },
-  {
-    path: 'requestHistory',
-    component: HistoryOfRequestsComponent
   }
 ];
 
