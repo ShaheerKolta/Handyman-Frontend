@@ -8,7 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { RouterModule } from '@angular/router';
 import { PlumberComponentComponent } from './plumber-component/plumber-component.component';
-import { ClientEditProfileComponent } from 'src/client-profile/client-edit-profile/client-edit-profile.component';
+import { ClientEditProfileComponent } from './client-profile/client-edit-profile/client-edit-profile.component';
 import { HistoryOfRequestsComponent } from './history-of-requests/history-of-requests.component';
 import { HandymenComponent } from './handymen/handymen.component';
 import { CarpentersComponent } from './carpenters/carpenters.component';
@@ -19,7 +19,10 @@ import { AppliancesTechnicianComponent } from './appliances-technician/appliance
 import { OtherComponent } from './other/other.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenServiceService } from './services/token-service.service';
+import { ClientProfileComponent } from './client-profile/client-profile.component';
+import { ProfileComponent } from './profile/profile.component';
 import { RequestDetailsComponent } from './Request/request-details/request-details.component';
+
 
 @NgModule({
   declarations: [AppComponent, 
@@ -39,10 +42,6 @@ import { RequestDetailsComponent } from './Request/request-details/request-detai
     {
       path: 'handymen/1',
       component: PlumberComponentComponent
-    },
-    {
-      path: 'client-edit-profile',
-      component: ClientEditProfileComponent
     },
     {
       path: 'handymen',
@@ -67,6 +66,14 @@ import { RequestDetailsComponent } from './Request/request-details/request-detai
     {
       path: 'handymen/6',
       component: AppliancesTechnicianComponent
+    },
+    {
+      path: 'client-profile',
+      component: ClientProfileComponent
+    },
+    {
+      path: 'profile',
+      component: ProfileComponent
     }
   ])
 ],

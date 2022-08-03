@@ -5,7 +5,7 @@ export interface Menu {
 
 export const menuList: Menu[] = [
   {
-    path: '/dashboard/profile',
+    path: '/profile',
     name: 'My Profile'
   },
   {

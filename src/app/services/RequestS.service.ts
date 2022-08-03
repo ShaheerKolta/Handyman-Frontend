@@ -26,4 +26,11 @@ export class RequestsService {
   deleteRequest(id) {
     return this.requestService.delete(this.Controller + '/', id) as Observable<any>;
   }
+
+  getRequestsByClientIDorHandySSN(id: Number, role: string) {
+    return this.requestService.getById(this.Controller + '/' + role + '/', id) as Observable<any>;
+  }
+  getRequestByID(id: Number) {
+    return this.requestService.getById(this.Controller, id) as Observable<any>;
+  }
 }

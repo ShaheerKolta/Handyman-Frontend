@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 export class RequestService {
   readonly rootUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient ) {}
+  constructor(private http: HttpClient) {}
   post(controller: string, obj) {
     return this.http.post(this.rootUrl + controller, obj);
   }
@@ -22,7 +22,7 @@ export class RequestService {
   getByName(controller: string, value: string) {
     return this.http.get(this.rootUrl + controller + '/' + value);
   }
-  getById(controller: string, id: number) {
+  getById(controller: string, id: Number) {
     return this.http.get(this.rootUrl + controller + '/' + id);
   }
 
@@ -30,10 +30,10 @@ export class RequestService {
     return this.http.get(this.rootUrl + controller + '/' + Boolean);
   }
 
-  delete(controller, id: number) {
+  delete(controller, id: Number) {
     return this.http.delete(this.rootUrl + controller + '/' + id);
   }
-  put(controller, id: number, obj) {
+  put(controller, id: Number, obj) {
     return this.http.put(this.rootUrl + controller + '/' + id, obj);
   }
 }
