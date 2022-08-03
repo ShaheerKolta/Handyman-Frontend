@@ -31,7 +31,11 @@ import { ProfileComponent } from './profile/profile.component';
                  CarpentersComponent, 
                  ElectriciansComponent, 
                  PaintersComponent, 
+<<<<<<< HEAD
                  MechanicsComponent, AppliancesTechnicianComponent, OtherComponent, ProfileComponent],
+=======
+                 MechanicsComponent, AppliancesTechnicianComponent, OtherComponent, RequestDetailsComponent],
+>>>>>>> ac1c559cc681b994c430cc8dfaa1404c324a803d
   imports: [BrowserModule, 
             AppRoutingModule, 
             BrowserAnimationsModule, 

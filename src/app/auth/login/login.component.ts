@@ -14,8 +14,9 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   user;
 
+  
   constructor(private fb: FormBuilder, private LoginService: LoginService) {
-    
+
   }
 
 
@@ -37,6 +38,7 @@ export class LoginComponent implements OnInit {
     this.LoginService.login(this.loginForm.value).subscribe(data => {
       localStorage.setItem('token', data['token']);
       localStorage.setItem('userId', data['userId']);
+      localStorage.setItem('role', this.loginForm.value.role);
     });
     
     debugger

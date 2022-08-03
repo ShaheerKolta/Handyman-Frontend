@@ -1,0 +1,90 @@
+<div>
+  <mat-sidenav-container class="kl-sidenav-container">
+    <mat-sidenav-content>
+      <ll-header></ll-header>
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+
+      <div class="container">
+        <div class="border bg-white mt-8 rounded-md">
+          <div class="flex p-4 bg-gray-200">
+            <h6 class="text-normal">Request Details</h6>
+          </div>
+          <div class="flex flex-wrap p-4">
+            <div class="w-full sm:w-1/2">
+              <div class="ll-dataset">
+                <div class="ll-dataset__label">
+                  Client Name:
+                </div>
+                <div class="ll-dataset__value" *ngFor="let request of requests" value="{{request.Request_ID}}">
+                  {{request.clientName}}
+                </div>
+              </div>
+              <div class="ll-dataset mt-4">
+                <div class="ll-dataset__label">
+                  Handyman Name:
+                </div>
+                <div class="ll-dataset__value" *ngFor="let request of requests" value="{{request.Request_ID}}">
+                  {{request.handymanName}}
+                </div>
+              </div>
+              <div class="ll-dataset mt-4">
+                <div class="ll-dataset__label">
+                  Request Date:
+                </div>
+                <div class="ll-dataset__value" *ngFor="let request of requests" value="{{request.Request_ID}}">
+                  {{request.Request_Date}}
+                </div>
+              </div>
+              <div class="ll-dataset mt-4">
+                <div class="ll-dataset__label">
+                  Date of Creation:
+                </div>
+                <div class="ll-dataset__value" *ngFor="let request of requests" value="{{request.Request_ID}}">
+                  {{request.Request_Order_Date}}
+                </div>
+              </div>
+            </div>
+            <div class="w-full sm:w-1/2 mt-4 sm:mt-0">
+              <div class="ll-dataset">
+                <div class="ll-dataset__label">
+                  Request Status:
+                </div>
+                <div class="ll-dataset__value" *ngFor="let request of requests" value="{{request.Request_ID}}">
+                  {{request.Request_Status}}
+                </div>
+              </div>
+              <div class="ll-dataset mt-4">
+                <div class="ll-dataset__label">
+                  Handyman Phone:
+                </div>
+                <div class="ll-dataset__value">
+                  Tech Incent
+                </div>
+              </div>
+              <div class="ll-dataset mt-4">
+                <div class="ll-dataset__label">
+                  Client Phone:
+                </div>
+                <div class="ll-dataset__value">
+                  Phone
+                </div>
+              </div>
+              <div class="ll-dataset mt-4">
+                <div class="ll-dataset__label">
+                  Client Address:
+                </div>
+                <div class="ll-dataset__value">
+                  N/A
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ll-feature></ll-feature>
+      <ll-footer></ll-footer>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

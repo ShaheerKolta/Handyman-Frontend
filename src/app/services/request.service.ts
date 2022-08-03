@@ -25,7 +25,6 @@ export class RequestService {
   getById(controller: string, id: number) {
     return this.http.get(this.rootUrl + controller + '/' + id);
   }
-  
 
   getByMethod(controller: string, method: Number) {
     return this.http.get(this.rootUrl + controller + '/' + Boolean);

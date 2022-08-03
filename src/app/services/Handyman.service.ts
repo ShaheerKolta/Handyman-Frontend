@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { __values } from 'tslib';
+import { GeneralHandyman } from '../models/General_Handyman';
 import { RequestService } from './request.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HandymanService {
+
   Controller = '/Handyman';
   constructor(private requestService: RequestService) {}
   getHandymen() {
@@ -16,6 +19,9 @@ export class HandymanService {
   // ! Route Modified by Helmy
   getHandymenByCraftID(id: number) {
     return this.requestService.getById(this.Controller + '/' + 'Craft', id) as Observable<any>;
+  }
+  getHandymanProfileBySSN(id: number) {
+    return this.requestService.getById(this.Controller, id) as Observable<any>;
   }
   /////////////////////////////////////////////////////////////////////////////////////////
 

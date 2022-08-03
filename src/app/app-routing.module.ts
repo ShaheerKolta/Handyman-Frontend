@@ -30,7 +30,7 @@ const routes: Routes = [
     children: baseLayoutRouting
   },
   {
-    // Random Comment 
+    // Random Comment
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
@@ -45,8 +45,15 @@ const routes: Routes = [
   {
     path: 'client-edit-profile',
     component: ClientEditProfileComponent
+  },
+  {
+    path: 'requestdetails',
+    component: RequestDetailsComponent
+  },
+  {
+    path: 'requestHistory',
+    component: HistoryOfRequestsComponent
   }
-  
 ];
 
 @NgModule({

@@ -1,6 +1,8 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
-import { menuList as staticMenuList } from '../../data/menus';
+import { LoginComponent } from 'src/app/auth/login/login.component';
+import { LoginService } from 'src/app/services/login.service';
+import { Menu, menuList as staticMenuList } from '../../data/menus';
 
 @Component({
   selector: 'll-header',
@@ -11,12 +13,16 @@ export class HeaderComponent implements OnInit {
   @Input() topFixed: boolean;
   @Output() toggleSidenav = new EventEmitter();
   isScrolled: boolean;
-  menuList = [];
+  menuList : Menu[]=  [];
   isLessThenLargeDevice;
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  isLoggedIn:boolean = localStorage.getItem("token")? true : false; 
+  constructor(private breakpointObserver: BreakpointObserver, private loginService : LoginService) {}
 
   ngOnInit(): void {
     this.menuList = staticMenuList;
+    if(!this.isLoggedIn){
+      this.menuList=this.menuList.slice(1,this.menuList.length);
+    }
     this.breakpointObserver.observe(['(max-width: 1199px)']).subscribe(({ matches }) => {
       this.isLessThenLargeDevice = matches;
     });
@@ -26,4 +32,6 @@ export class HeaderComponent implements OnInit {
   checkScroll() {
     this.isScrolled = window.pageYOffset > 15;
   }
+
+
 }
