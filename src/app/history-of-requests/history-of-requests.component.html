@@ -1,8 +1,10 @@
-<div >
+<div>
   <mat-sidenav-container class="kl-sidenav-container">
     <mat-sidenav-content>
-      <ll-header ></ll-header>
-      <main><router-outlet></router-outlet></main>
+      <ll-header></ll-header>
+      <main>
+        <router-outlet></router-outlet>
+      </main>
 
 
       <div class="container">
@@ -20,11 +22,11 @@
                 <th>
                   <span class="text-gray-800">Price</span>
                 </th>
-        
+
                 <th>
                   <span class="text-gray-800">Created</span>
                 </th>
-        
+
                 <th>
                   <span class="text-gray-800">Status</span>
                 </th>
@@ -32,32 +34,46 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let order of orders" class="border">
+              <tr *ngFor="let request of requests" class="border">
                 <td>
-                  <a class="text-primary" href="/">#{{order?.id}}</a>
+                  <a class="text-primary" href="/">#{{request.request_ID}}</a>
                 </td>
                 <td>
-                  {{order?.orderBy | titlecase }}
+                  {{request.request_ID }}
                 </td>
                 <td>
-                  <span>${{order?.price}}</span>
+                  <span>{{request.handyman_SSN}}</span>
                 </td>
                 <td>
-                  <span>{{order?.created}}</span>
+                  <span>{{request.request_Date}}</span>
+
                 </td>
                 <td>
-                  <div [ngClass]="{
-                    'bg-blue-500 text-blue-500': order?.status === 'complated',
-                    'bg-red-500 text-red-500': order?.status === 'rejected',
-                    'bg-yellow-500 text-yellow-900': order?.status === 'pending',
-                    'bg-primary text-primary': order?.status === 'initialized'
-                    }" 
-                    class="text-[12px] bg-opacity-20 rounded-full px-3 inline-block font-bold py-[3px]"
-                  >
-                    {{ order?.status | titlecase }}
-                  </div>
+                  <span>{{request.payments[0].payment_Amount}}</span>
                 </td>
-                <td class="text-right">
+
+                <td>
+                <td *ngIf="request.request_Status == '1' || request.request_Status == '0'">
+                  <b>Pending...</b>
+                </td>
+                <td *ngIf="request.request_Status == '2'">
+                  <b>Accepted</b>
+                </td>
+                <td *ngIf="request.request_Status == '3'">
+                  <b>Canceled by the User</b>
+                </td>
+                <td *ngIf="request.request_Status == '4'">
+                  <b>Canceled by the Handyman</b>
+                </td>
+
+
+                <!-- request.payments[0].Payment_Amount -->
+
+
+
+
+                <!-- *ngIf="myVar == 'A'" -->
+                <!-- <td class="text-right">
                   <button class="action_icon__btn" mat-icon-button [matMenuTriggerFor]="menu">
                     <mat-icon>more_vert</mat-icon>
                   </button>
@@ -71,13 +87,13 @@
                       <span>Delete</span>
                     </button>
                   </mat-menu>
-                </td>
+                </td> -->
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-      
+
 
 
 

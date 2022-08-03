@@ -14,12 +14,11 @@ export class RequestsService {
   createRequest(formData) {
     return this.requestService.post(this.Controller + '/', formData) as Observable<any>;
   }
-  getRequestById(id:number)
-  {
+  getRequestById(id: number) {
     return this.requestService.getById(this.Controller, id) as Observable<any>;
   }
 
-  editRequest(id: number, request :[]) {
+  editRequest(id: number, request: []) {
     return this.requestService.put(this.Controller + '/', id, request) as Observable<any>;
   }
 
@@ -27,10 +26,11 @@ export class RequestsService {
     return this.requestService.delete(this.Controller + '/', id) as Observable<any>;
   }
 
-  getRequestsByClientIDorHandySSN(id: Number, role: string) {
-    return this.requestService.getById(this.Controller + '/' + role + '/', id) as Observable<any>;
+  getRequestsByClientIDorHandySSN(id, role: string) {
+    return this.requestService.getById(this.Controller + '/' + role, id) as Observable<any>;
   }
-  getRequestByID(id: Number) {
-    return this.requestService.getById(this.Controller, id) as Observable<any>;
-  }
+
+  // getRequestByID(id: Number) {
+  //   return this.requestService.getById(this.Controller, id) as Observable<any>;
+  // }
 }
