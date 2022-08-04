@@ -23,7 +23,6 @@ export class HistoryOfRequestsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    debugger;
     this.getUserIdandRole();
     this.getRequestsByClientIDorHandySSNMethod(this.userID, this.role);
   }
