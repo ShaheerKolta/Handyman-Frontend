@@ -7,29 +7,29 @@ import { RequestsService } from '../services/RequestS.service';
   styleUrls: ['./history-of-requests.component.scss']
 })
 export class HistoryOfRequestsComponent implements OnInit {
-  orders = [];
+  // orders = [];
   request;
   requests;
-  token: string;
+  userID;
+  role;
 
   constructor(private RequestsService: RequestsService) {}
 
   ngOnInit(): void {
     debugger;
-    this.getRequestByIDMethod(12);
-    this.getToken();
-    console.log(this.request);
+    this.getUserIdandRole();
+    this.getRequestsByClientIDorHandySSNMethod(this.userID, this.role);
   }
 
-  getToken() {
-    this.token = localStorage.getItem('token');
-    console.log(this.token);
+  getUserIdandRole() {
+    this.userID = localStorage.getItem('userId');
+    this.role = localStorage.getItem('role');
   }
-  getRequestByIDMethod(data: Number) {
-    this.RequestsService.getRequestByID(data).subscribe(
+  getRequestsByClientIDorHandySSNMethod(data: Number, role) {
+    this.RequestsService.getRequestsByClientIDorHandySSN(data, role).subscribe(
       res => {
-        this.request = res;
-        // this.GeneralHandyman = res;
+        this.requests = res; // this.GeneralHandyman = res;
+        console.log(res);
       },
       err => {}
     );

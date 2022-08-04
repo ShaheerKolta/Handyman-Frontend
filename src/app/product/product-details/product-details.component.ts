@@ -29,15 +29,17 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.communicationService.getSSN().subscribe(newValue => {
-      this.SSN = newValue;
+      // console.log('this is after send data', newValue);
+      if (newValue) {
+        this.getHandymanProfileBySSNMethod(newValue);
+      }
     });
-    debugger;
-    //this.subscription = this.HandymanService.getSSN().subscribe(msg => (this.SSN = msg));
-    this.communicationService.SSNStatus.subscribe((status: number) => (this.SSN = status));
-    this.communicationService.SSNStatus.unsubscribe();
-    //this.SSN = this.communicationService.getValue();
-    this.getHandymanProfileBySSNMethod(this.SSN);
-    console.log(this.SSN);
+    // debugger;
+    // //this.subscription = this.HandymanService.getSSN().subscribe(msg => (this.SSN = msg));
+    // this.communicationService.SSNStatus.subscribe((status: number) => (this.SSN = status));
+    // //this.communicationService.SSNStatus.unsubscribe();
+    // //this.SSN = this.communicationService.getValue();
+    //console.log(this.SSN);
   }
 
   test() {
@@ -46,9 +48,11 @@ export class ProductDetailsComponent implements OnInit {
     // alert(this.subscription);
     // console.log(this.subscription);
   }
-  getHandymanProfileBySSNMethod(data) {
-    debugger;
-    this.HandymanService.getHandymanProfileBySSN(data).subscribe(
+  getHandymanProfileBySSNMethod(id: number) {
+    console.log(id);
+
+    // debugger;
+    this.HandymanService.getHandymanProfileBySSN(id).subscribe(
       res => {
         this.Handyman = res;
         console.log('This is a Test', res);

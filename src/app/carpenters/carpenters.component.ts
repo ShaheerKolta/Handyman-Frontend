@@ -23,7 +23,6 @@ export class CarpentersComponent implements OnInit {
   private SSN: Number;
   private path;
   public subscription: Subscription;
-  
 
   //router: any;
   constructor(
@@ -37,17 +36,21 @@ export class CarpentersComponent implements OnInit {
     //this.HandymanService.setSSN(this.SSN);
   }
 
-  onSubmit(ssnData: Number) {
+  onSubmit(ssnData: number) {
+    console.log('This is  a test print' + ssnData);
+    this.CommunicationService.setSSN(ssnData);
+    this.router.navigate([`/products/${ssnData}`]);
+
     // //this.router.navigate(['/planning/capplanning'], {
     //   skipLocationChange: true,
     // });
-    debugger;
+    // debugger;
     //console.log(ssnData);
 
-    this.SSN = ssnData;
+    // this.SSN = ssnData;
     //this.path = '/Products/' + this.SSN;
-    this.CommunicationService.setSSN(this.SSN);
-    this.CommunicationService.SSNStatus.emit(ssnData); // emits the SSN
+    // this.CommunicationService.setSSN(this.SSN);
+    //this.CommunicationService.SSNStatus.emit(ssnData); // emits the SSN
 
     //console.log(this.subscription);
 
