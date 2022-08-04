@@ -24,7 +24,10 @@ export class CommunicationLayerService {
   //private value: BehaviorSubject<any>;
   data: any;
   currentValue = new BehaviorSubject<number>(null);
+  RequestIDValue = new BehaviorSubject<number>(null);
+
   value = this.currentValue.asObservable();
+  RequestID = this.RequestIDValue.asObservable();
 
   // ! this is a setter should be replaced
   //private data = new Subject<number>();
@@ -42,8 +45,16 @@ export class CommunicationLayerService {
     return this.value;
   }
 
-  getValue() {
-    //debugger;
-    return this.value;
+  // getValue() {
+  //   //debugger;
+  //   return this.value;
+  // }
+
+  getRequestID() {
+    return this.RequestID;
+  }
+
+  SetRequestID(RID : number){
+      this.RequestIDValue.next(RID);
   }
 }

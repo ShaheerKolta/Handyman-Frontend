@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CommunicationLayerService } from '../communication-layer.service';
 import { RequestsService } from '../services/RequestS.service';
 
 @Component({
@@ -13,12 +15,21 @@ export class HistoryOfRequestsComponent implements OnInit {
   userID;
   role;
 
-  constructor(private RequestsService: RequestsService) {}
+  constructor(
+    private RequestsService: RequestsService,
+    private CommunicationService: CommunicationLayerService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     debugger;
     this.getUserIdandRole();
     this.getRequestsByClientIDorHandySSNMethod(this.userID, this.role);
+  }
+
+  onSubmit(value: number) {
+    this.CommunicationService.SetRequestID(value);
+    this.router.navigate([`/requestdetails`]);
   }
 
   getUserIdandRole() {

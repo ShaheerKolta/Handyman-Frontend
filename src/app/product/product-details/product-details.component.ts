@@ -5,6 +5,7 @@ import { CommunicationLayerService } from 'src/app/communication-layer.service';
 import { GeneralHandyman } from 'src/app/models/General_Handyman';
 import { CommunicationService } from 'src/app/services/Communication.service';
 import { HandymanService } from 'src/app/services/Handyman.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'll-product-details',
@@ -13,6 +14,7 @@ import { HandymanService } from 'src/app/services/Handyman.service';
   //providers: [CommunicationService]
 })
 export class ProductDetailsComponent implements OnInit {
+  [x: string]: any;
   //Handyman;
   //@Input() public SSN;
   // @Input() handymanCrafts;
@@ -23,7 +25,11 @@ export class ProductDetailsComponent implements OnInit {
 
   public subscription: Subscription;
 
-  constructor(private HandymanService: HandymanService, public communicationService: CommunicationLayerService) {}
+  constructor(
+    private HandymanService: HandymanService,
+    public communicationService: CommunicationLayerService,
+    private router: Router
+  ) {}
 
   // variable of carpenter to call it in profile (Product Details)
 
@@ -31,6 +37,7 @@ export class ProductDetailsComponent implements OnInit {
     this.communicationService.getSSN().subscribe(newValue => {
       // console.log('this is after send data', newValue);
       if (newValue) {
+        this.SSN = newValue;
         this.getHandymanProfileBySSNMethod(newValue);
       }
     });
@@ -48,6 +55,7 @@ export class ProductDetailsComponent implements OnInit {
     // alert(this.subscription);
     // console.log(this.subscription);
   }
+
   getHandymanProfileBySSNMethod(id: number) {
     console.log(id);
 
@@ -61,5 +69,13 @@ export class ProductDetailsComponent implements OnInit {
     );
   }
 
-  onSubmit() {}
+  onSubmit() {
+    //console.log('This is  a test from inside the profile :' + this.ssnData);
+    this.communicationService.getSSN().subscribe(newValue => {
+      // console.log('this is after send data', newValue);
+      this.router.navigate([`/auth/request`]);
+    });
+  }
+
+  // SSN
 }

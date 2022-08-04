@@ -31,7 +31,7 @@
             <tbody>
               <tr *ngFor="let request of requests">
                 <th scope="row">
-                  <a class="text-primary" href="/">{{request.request_ID}}</a>
+                  <a (click)="onSubmit(request.request_ID)" class="text-primary click">{{request.request_ID}}</a>
                 </th>
                 <td>{{request.request_Order_Date}}</td>
                 <td>{{request.request_Date}}</td>
