@@ -13,6 +13,7 @@ import { LoginService } from 'src/app/services/login.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   user;
+  isLoggedIn:boolean = localStorage.getItem("token")? true : false; 
   
 
   
@@ -40,10 +41,18 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('userId', data['userId']);
       localStorage.setItem('role', this.loginForm.value.role);
     });
+    this.redirect()
    
     // this.router.navigate([''], {
   
     // });
     
    }
+   redirect() {
+    if(this.isLoggedIn === true){
+      
+      this.router.navigate(['']);
+    }
+    
+}
 }

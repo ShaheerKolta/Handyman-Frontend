@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { RouterModule } from '@angular/router';
-import { PlumberComponentComponent } from './plumber-component/plumber-component.component';
+import { PlumberComponentComponent } from 'src/app/plumber-component/plumber-component.component';
 import { ClientEditProfileComponent } from './client-profile/client-edit-profile/client-edit-profile.component';
 import { HistoryOfRequestsComponent } from './history-of-requests/history-of-requests.component';
 import { HandymenComponent } from './handymen/handymen.component';
