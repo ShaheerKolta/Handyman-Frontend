@@ -146,6 +146,7 @@ export class SignupComponent implements OnInit {
     //   Handyman_ID_Image: Handyman_ID_Image
     // });
     this.requestService.post('/Handyman/register', this.formGroup.value).subscribe();
+   
     // this.registerService.Createregister(this.formGroup.value).subscribe(
     //   res => {
     //     debugger;

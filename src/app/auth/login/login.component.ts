@@ -13,9 +13,10 @@ import { LoginService } from 'src/app/services/login.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   user;
+  
 
   
-  constructor(private fb: FormBuilder, private LoginService: LoginService) {
+  constructor(private fb: FormBuilder, private LoginService: LoginService, private router : Router) {
 
   }
 
@@ -39,5 +40,10 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('userId', data['userId']);
       localStorage.setItem('role', this.loginForm.value.role);
     });
+   
+    // this.router.navigate([''], {
+  
+    // });
+    
    }
 }

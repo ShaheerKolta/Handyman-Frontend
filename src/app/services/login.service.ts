@@ -47,9 +47,11 @@ export class LoginService {
   // Todo : Make get client by Email Function
 
   saveToken(token) {
-    debugger
+    
     console.log(token);
     localStorage.setItem('token', token);
+    //document.location.reload();
+
   }
 
   getToken() {
