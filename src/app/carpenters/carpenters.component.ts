@@ -8,6 +8,7 @@ import { CommunicationLayerService } from '../communication-layer.service';
 import { GeneralHandyman } from '../models/General_Handyman';
 import { HandymanRegister } from '../models/handyman-register';
 import { CommunicationService } from '../services/Communication.service';
+import { productsDB } from '../shared/data/products';
 
 @Component({
   selector: 'app-carpenters',
@@ -17,7 +18,8 @@ import { CommunicationService } from '../services/Communication.service';
 })
 export class CarpentersComponent implements OnInit {
   //handymanCrafts;
-  craftID: Number = 1;
+  craftID;
+  craft;
   // Using model in Trasfrering Data
   handymanCrafts;
   private SSN: Number;
@@ -32,7 +34,14 @@ export class CarpentersComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getHandymenByCraftIDMethod(this.craftID);
+    this.CommunicationService.getCraftId().subscribe(newValue => {
+      if (newValue) {
+        this.craftID = newValue;
+        this.craft = productsDB.Product[this.craftID - 1];
+        this.getHandymenByCraftIDMethod(this.craftID);
+      }
+    });
+    // this.getHandymenByCraftIDMethod(this.craftID);
     //this.HandymanService.setSSN(this.SSN);
   }
 

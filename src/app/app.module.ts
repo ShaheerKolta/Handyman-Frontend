@@ -22,6 +22,7 @@ import { TokenServiceService } from './services/token-service.service';
 import { ClientProfileComponent } from './client-profile/client-profile.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RequestDetailsComponent } from './Request/request-details/request-details.component';
+import { UpcomingRequestComponent } from './upcoming-request/upcoming-request.component';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { RequestDetailsComponent } from './Request/request-details/request-detai
                  CarpentersComponent, 
                  ElectriciansComponent, 
                  PaintersComponent, 
-                 MechanicsComponent, AppliancesTechnicianComponent, OtherComponent, RequestDetailsComponent],
+                 MechanicsComponent, AppliancesTechnicianComponent, OtherComponent, RequestDetailsComponent, UpcomingRequestComponent],
   imports: [BrowserModule, 
             AppRoutingModule, 
             BrowserAnimationsModule, 
@@ -74,6 +75,10 @@ import { RequestDetailsComponent } from './Request/request-details/request-detai
     {
       path: 'profile',
       component: ProfileComponent
+    },
+    {
+      path: 'upcoming-request',
+      component: UpcomingRequestComponent
     }
   ])
 ],
