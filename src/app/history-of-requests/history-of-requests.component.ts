@@ -10,7 +10,6 @@ import { RequestsService } from '../services/RequestS.service';
   styleUrls: ['./history-of-requests.component.scss']
 })
 export class HistoryOfRequestsComponent implements OnInit {
-  // orders = [];
   request;
   requests;
   userID;
