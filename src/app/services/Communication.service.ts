@@ -31,6 +31,7 @@ export class CommunicationService {
     //this.currentValue.subscribe();
     this.currentValue.next(this.data);
   }
+
   /////////////////////////////////////////////////////////////////////////////////////////
   // ! this is a getter should be replaced
   getSSN() {
