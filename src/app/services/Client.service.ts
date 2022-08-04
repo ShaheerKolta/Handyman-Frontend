@@ -9,10 +9,10 @@ export class ClientService {
   Controller = '/Client';
   constructor(private requestService: RequestService) {}
   getClients() {
-    return this.requestService.get(this.Controller ) as Observable<any>;
+    return this.requestService.get(this.Controller) as Observable<any>;
   }
   getClientbyId(id) {
-    return this.requestService.get(this.Controller + '/' ) as Observable<any>;
+    return this.requestService.getById(this.Controller, id) as Observable<any>;
   }
   // ??     in get clients too
   createClients(formData) {

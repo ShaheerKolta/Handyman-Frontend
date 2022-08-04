@@ -33,9 +33,9 @@
                 <th scope="row">
                   <a (click)="onSubmit(request.request_ID)" class="text-primary click">{{request.request_ID}}</a>
                 </th>
-                <td>{{request.request_Order_Date}}</td>
-                <td>{{request.request_Date}}</td>
-                <td>{{request.payments[0].payment_Amount}}</td>
+                <td>{{pipe.transform(request.request_Order_Date,'M/d/yy, h:mm a')}}</td>
+                <td>{{pipe.transform(request.request_Date,'M/d/yy, h:mm a')}}</td>
+                <td>{{request.payments[0]?.payment_Amount}}</td>
                 <td *ngIf="request.request_Status == '1' || request.request_Status == '0'">
                   <b>Pending...</b>
                 </td>

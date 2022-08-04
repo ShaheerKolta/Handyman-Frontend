@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommunicationLayerService } from '../communication-layer.service';
@@ -9,11 +10,11 @@ import { RequestsService } from '../services/RequestS.service';
   styleUrls: ['./history-of-requests.component.scss']
 })
 export class HistoryOfRequestsComponent implements OnInit {
-  // orders = [];
   request;
   requests;
   userID;
   role;
+  pipe = new DatePipe('en-US');
 
   constructor(
     private RequestsService: RequestsService,
@@ -39,7 +40,7 @@ export class HistoryOfRequestsComponent implements OnInit {
   getRequestsByClientIDorHandySSNMethod(data: Number, role) {
     this.RequestsService.getRequestsByClientIDorHandySSN(data, role).subscribe(
       res => {
-        this.requests = res; // this.GeneralHandyman = res;
+        this.requests = res;
         console.log(res);
       },
       err => {}

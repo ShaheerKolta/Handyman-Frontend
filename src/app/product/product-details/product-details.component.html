@@ -7,7 +7,7 @@
         <ul class="product-meta flex flex-wrap items-center mt-8 mb-8">
           <li class="mr-4">
             <a class="flex items-center pr-4 py-1 hover:text-primary" href="javascript:void(0)">
-            <mat-icon class="mr-2" color="warn">start</mat-icon> {{ Handyman.rating }}/5 (14 Feedback)
+              <mat-icon class="mr-2" color="warn">start</mat-icon> {{ Handyman.rating }}/5 (14 Feedback)
             </a>
           </li>
           <!-- <li class="mr-4">
@@ -90,7 +90,6 @@
           </div>
           <div class="border-b p-5">
             <ul class="service-info">
-              <li class="py-2 mr-2"></li>
               <li class="py-2 mr-2">
                 <div class="flex items-center">
                   <mat-icon class="text-primary border-2 rounded-full w-6 h-6 text-center leading-5 mr-2">check
@@ -103,7 +102,7 @@
                   <mat-icon class="text-primary border-2 rounded-full w-6 h-6 text-center leading-5 mr-2">check
                   </mat-icon>
                   <!-- This is ngFor  -->
-                  <strong class="mr-2 font-black"> Handyman.schedules.time_From </strong> Avaliability
+                  <strong class="mr-2 font-black">{{ Handyman.schedules?.time_From }}</strong> Avaliability
                 </div>
               </li>
             </ul>

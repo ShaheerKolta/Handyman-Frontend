@@ -23,6 +23,8 @@ import { ClientProfileComponent } from './client-profile/client-profile.componen
 import { ProfileComponent } from './profile/profile.component';
 import { RequestDetailsComponent } from './Request/request-details/request-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpcomingRequestComponent } from './upcoming-request/upcoming-request.component';
+
 
 @NgModule({
   declarations: [AppComponent, 
@@ -32,7 +34,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
                  CarpentersComponent, 
                  ElectriciansComponent, 
                  PaintersComponent, 
-                 MechanicsComponent, AppliancesTechnicianComponent, OtherComponent, RequestDetailsComponent],
+                 MechanicsComponent, AppliancesTechnicianComponent, OtherComponent, RequestDetailsComponent, UpcomingRequestComponent],
   imports: [BrowserModule, 
             AppRoutingModule, 
             BrowserAnimationsModule, 
@@ -76,6 +78,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     {
       path: 'profile',
       component: ProfileComponent
+    },
+    {
+      path: 'upcoming-request',
+      component: UpcomingRequestComponent
     }
   ])
 ],
