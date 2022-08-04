@@ -95,7 +95,7 @@
                   {{request.request.client_Review}}
                 </div>
               </div>
-              <div class="ll-dataset mt-4" *ngIf="role == false">
+              <div class="ll-dataset mt-4" *ngIf="role == false && editReview == false">
                 <div class="ll-dataset__label">
                   Handyman Rate:
                 </div>
@@ -103,27 +103,62 @@
                   {{request.request.handy_Rate}}
                 </div>
               </div>
-              <div class="ll-dataset mt-4" *ngIf="role == false">
+              <div class="ll-dataset mt-4" *ngIf="role == false && editReview == false">
                 <div class="ll-dataset__label">
                   Handyman Review:
                 </div>
                 <div class="ll-dataset__value">
                   {{request.request.handy_Review}}
                 </div>
-                <!-- <button class="text-blue-400 hover:text-accent ml-auto flex items-center" (click)="submit()">
-                  <mat-icon class="_edit_icon mr-2">edit</mat-icon>
-                  Edit
-                </button>
-                <form>
-                  <div class="ll-dataset__value" *ngIf="editReview == true">
-                    <input [(ngModel)]="rate" id="rate" name="rate">
-                  </div>
-                  <div class="ll-dataset__value" *ngIf="editReview == true">
-                    <input formControlName="review">
-                  </div>
-                  <button type="submit" (click)="submit()">Submit</button>
-                </form> -->
               </div>
+              <div class="ll-dataset mt-4">
+                <form [formGroup]="formgroup" class="ll-dataset__value">
+                  <div class="mb-6 mt-6" *ngIf="editReview == true">
+                    <div class="ll-dataset__label">
+                      Handyman Rate:
+                    </div>
+                    <input class="text-sm
+                                appearance-none
+                                rounded
+                                w-full
+                                py-2
+                                px-3
+                                text-gray-700
+                                bg-gray-100
+                                leading-tight
+                                focus:outline-none
+                                focus:shadow-outline
+                                h-10" id="rate" name="rate" type="number" formControlName="rate">
+                  </div>
+                  <div class="mb-6 mt-6" *ngIf="editReview == true">
+                    <div class="ll-dataset__label">
+                      Handyman Review:
+                    </div>
+                    <input class="text-sm
+                                appearance-none
+                                rounded
+                                w-full
+                                py-2
+                                px-3
+                                text-gray-700
+                                bg-gray-100
+                                leading-tight
+                                focus:outline-none
+                                focus:shadow-outline
+                                h-10" formControlName="review">
+                  </div>
+                </form>
+                <button class="text-blue-400 hover:text-accent ml-auto flex items-center" (click)="submit()">
+                  <mat-icon class="_edit_icon mr-2">edit</mat-icon>
+                  Edit Review
+                </button>
+              </div>
+              <button class="text-blue-400 hover:text-accent ml-auto flex items-center"
+                *ngIf="(status == 2 ||status == 1||status == 0) && dateReq==true" (click)="cancelRequest()"
+                routerLink="/auth/requestHistory">
+                <mat-icon class='material-icons-round'>cancel</mat-icon>
+                Cancel
+              </button>
             </div>
           </div>
         </div>

@@ -22,7 +22,7 @@ import { TokenServiceService } from './services/token-service.service';
 import { ClientProfileComponent } from './client-profile/client-profile.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RequestDetailsComponent } from './Request/request-details/request-details.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, 
@@ -37,7 +37,9 @@ import { RequestDetailsComponent } from './Request/request-details/request-detai
             AppRoutingModule, 
             BrowserAnimationsModule, 
             SharedModule, 
-            NgxSkeletonLoaderModule
+            NgxSkeletonLoaderModule,
+            ReactiveFormsModule,
+            FormsModule
     ,RouterModule.forRoot([
     {
       path: 'handymen/1',

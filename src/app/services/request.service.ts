@@ -33,7 +33,7 @@ export class RequestService {
   delete(controller, id: Number) {
     return this.http.delete(this.rootUrl + controller + '/' + id);
   }
-  put(controller, id: Number, obj) {
-    return this.http.put(this.rootUrl + controller + '/' + id, obj);
+  put(controller, id: Number, formData) {
+    return this.http.put(this.rootUrl + controller + '/' + id, formData);
   }
 }
