@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  count = 0;
+  flag = 0;
   particlesOptions = {
     particles: {
       color: {
@@ -26,17 +26,23 @@ export class HomeComponent implements OnInit {
       }
     }
   };
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    // this.checkLogged();
+  }
 
-  checkLogged(){
+  checkLogged() {
     debugger;
-    if(localStorage.getItem("token")!=null && this.count == 0){
-      this.router.navigate([`/`]);
-      this.count = 1;
+    if (!localStorage.getItem('Signed')) {
+      localStorage.setItem('Signed', 'no reload');
+      location.reload();
+    } else {
+      localStorage.removeItem('Signed');
     }
+
+    // ? Using localstorage as a flag
   }
 
   ngOnInit(): void {
-    
-    this.checkLogged();}
+    this.checkLogged();
+  }
 }
