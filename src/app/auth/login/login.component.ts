@@ -41,17 +41,17 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('userId', data['userId']);
       localStorage.setItem('role', this.loginForm.value.role);
     });
-    this.redirect()
+   // this.redirect()
    
-    // this.router.navigate([''], {
+    this.router.navigate([''], {
   
-    // });
+    });
     
    }
-   redirect() {
+    redirect() {
     if(this.isLoggedIn === true){
       
-      this.router.navigate(['']);
+      this.router.navigate(['/']);
     }
     
 }
