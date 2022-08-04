@@ -7,11 +7,13 @@
     <div class="grid grid-cols-12 gap-6 xxl:gap-8">
       <div *ngFor="let product of products" class="col-span-12 md:col-span-6 xl:col-span-4">
         <mat-card class="ll-product">
-          <img mat-card-image [src]="product?.images[0]" alt="{{ product.name }}" style="width: 100%; margin: 0 0 20px" />
+          <img mat-card-image [src]="product?.images[0]" alt="{{ product.name }}"
+            style="width: 100%; margin: 0 0 20px" />
           <mat-card-content class="flex">
             <div class="flex-grow pl-3">
               <h2 class="ll-product__name">
-                <a [routerLink]="['/handymen', product.id]">Go to {{ product?.created_by?.name }}</a>
+                <a (click)="onSubmit(product.id)" [routerLink]="['/handymen', 2]">Go to {{
+                  product?.created_by?.name }}</a>
               </h2>
             </div>
           </mat-card-content>
