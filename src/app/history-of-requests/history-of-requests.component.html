@@ -35,7 +35,7 @@
                 </th>
                 <td>{{pipe.transform(request.request_Order_Date,'M/d/yy, h:mm a')}}</td>
                 <td>{{pipe.transform(request.request_Date,'M/d/yy, h:mm a')}}</td>
-                <td>{{request.payments[0].payment_Amount}}</td>
+                <td>{{request.payments[0]?.payment_Amount}}</td>
                 <td *ngIf="request.request_Status == '1' || request.request_Status == '0'">
                   <b>Pending...</b>
                 </td>
