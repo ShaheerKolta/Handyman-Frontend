@@ -19,7 +19,7 @@ export class ClientService {
     return this.requestService.post(this.Controller + '/', formData) as Observable<any>;
   }
 
-  editClients(id: number, formData) {
+  editClient(id, formData) {
     return this.requestService.put(this.Controller + '/', id, formData) as Observable<any>;
   }
 
