@@ -13,11 +13,7 @@ export const menuList: Menu[] = [
     name: 'Requests'
   },
   {
-    path: '/about',
-    name: 'About'
-  },
-  {
-    path: '/contact',
-    name: 'Contact'
+    path: '/upcoming-request',
+    name: 'Pending Requests'
   }
 ];

@@ -16,12 +16,17 @@ export class HeaderComponent implements OnInit {
   menuList : Menu[]=  [];
   isLessThenLargeDevice;
   isLoggedIn:boolean = localStorage.getItem("token")? true : false; 
+  role : boolean = localStorage.getItem("role")=="Handyman"? true : false;
   constructor(private breakpointObserver: BreakpointObserver, private loginService : LoginService) {}
 
   ngOnInit(): void {
     this.menuList = staticMenuList;
     if(!this.isLoggedIn){
-      this.menuList=this.menuList.slice(1,this.menuList.length);
+      this.menuList=this.menuList.slice(2,this.menuList.length);
+    }
+
+    if(!this.role){
+      this.menuList=this.menuList.slice(0,this.menuList.length-1);
     }
     this.breakpointObserver.observe(['(max-width: 1199px)']).subscribe(({ matches }) => {
       this.isLessThenLargeDevice = matches;

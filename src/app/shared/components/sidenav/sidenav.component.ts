@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
 import { menuList } from '../../data/menus';
 
 @Component({
@@ -8,10 +9,13 @@ import { menuList } from '../../data/menus';
 })
 export class SidenavComponent implements OnInit {
   navList = [];
-  constructor() { }
+  isLoggedIn:boolean = localStorage.getItem("token")? true : false;
+  constructor( private loginService : LoginService) { }
 
   ngOnInit(): void {
     this.navList = menuList;
+    if(!this.isLoggedIn){
+      this.navList=this.navList.slice(2,this.navList.length);}
   }
 
 }
