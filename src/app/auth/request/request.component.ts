@@ -100,8 +100,11 @@ export class RequestComponent implements OnInit {
 
   isPrevious(res){
     debugger
-    this.communicationService.SetRequestID(res.request_ID);
-    this.router.navigate([`/requestdetails`]);
+    if(res.request_ID != 0){
+      this.communicationService.SetRequestID(res.request_ID);
+      this.router.navigate([`/requestdetails`]);
+    }
+    this.router.navigate([`/auth/requestHistory`]);
   }
 
   createRequest(formData) {
