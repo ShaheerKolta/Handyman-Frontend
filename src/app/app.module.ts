@@ -25,6 +25,7 @@ import { RequestDetailsComponent } from './Request/request-details/request-detai
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpcomingRequestComponent } from './upcoming-request/upcoming-request.component';
 import { CommonModule } from '@angular/common';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CommonModule } from '@angular/common';
     ElectriciansComponent,
     PaintersComponent,
     ProfileComponent,
+    EditProfileComponent,
     MechanicsComponent,
     AppliancesTechnicianComponent,
     OtherComponent,
@@ -87,6 +89,10 @@ import { CommonModule } from '@angular/common';
       {
         path: 'profile',
         component: ProfileComponent
+      },
+      {
+        path: 'edit',
+        component: EditProfileComponent
       },
       {
         path: 'upcoming-request',

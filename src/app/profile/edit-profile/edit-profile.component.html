@@ -1,0 +1,66 @@
+<div class="container">
+	<!-- User Meta End -->
+	<!-- User Meta Start -->
+	<div class="border bg-white mt-8 rounded-md">
+		<div class="flex p-4 bg-gray-200">
+			<h6 class="text-normal">Personal Information</h6>
+			<button (click)="submit()" class="text-blue-400 hover:text-accent ml-auto flex items-center">
+				Save</button>
+		</div>
+		<form [formGroup]="formGroup">
+			<div class="flex flex-wrap p-4">
+				<div class="w-full sm:w-1/2">
+					<div class="ll-dataset">
+						<label class="ll-dataset__label" for="client_name">
+							Name:
+						</label>
+						<input class="ll-dataset__value" type="text" placeholder="Name" formControlName="client_name" [value]="
+							client.client_name">
+					</div>
+					<br>
+					<div class="ll-dataset">
+						<label class="ll-dataset__label" for="client_Email">
+							Email:
+						</label>
+						<input class="ll-dataset__value" type="text" placeholder="Email address" formControlName="client_Email"
+							[value]="client.client_Email">
+					</div>
+					<br>
+					<div class="ll-dataset">
+						<label class="ll-dataset__label" for="password">
+							Password:
+						</label>
+						<input class="ll-dataset__value" type="password" placeholder="Password" formControlName="password"
+							[value]="client.password">
+					</div>
+					<br>
+					<div class="ll-dataset">
+						<label class="ll-dataset__label" for="client_Address">
+							Address:
+						</label>
+						<input class="ll-dataset__value" type="text" placeholder="Address" formControlName="client_Address"
+							[value]="client.client_Address">
+					</div>
+				</div>
+				<div class="w-full sm:w-1/2 mt-4 sm:mt-0">
+					<div class="ll-dataset">
+						<label class="ll-dataset__label" for="client_Mobile">
+							Mobile Number:
+						</label>
+						<input class="ll-dataset__value" type="number" placeholder="Phone number" formControlName="client_Mobile"
+							[value]="client.client_Mobile">
+					</div>
+					<!-- <div class="ll-dataset mt-4">
+						<label class="ll-dataset__label" for="region_ID">
+							Region
+						</label>
+						<input class="ll-dataset__value" type="number" placeholder="0" formControlName="region_ID">
+					</div> -->
+				</div>
+			</div>
+		</form>
+	</div>
+	<!-- User Meta End -->
+</div>
+
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////// -->

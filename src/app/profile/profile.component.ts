@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ClientService } from 'src/app/services/Client.service';
 import { HandymanService } from '../services/Handyman.service';
 
@@ -10,13 +11,12 @@ import { HandymanService } from '../services/Handyman.service';
 export class ProfileComponent implements OnInit {
   client;
   handyman;
-  checkStatus:boolean=true;
-  role:boolean = localStorage.getItem('role') === 'Handyman' ? false: true;
-  constructor(private ClientService: ClientService , private HandymanService : HandymanService) {}
+  checkStatus: boolean = true;
+  role: boolean = localStorage.getItem('role') === 'Handyman' ? false : true;
+  constructor(private ClientService: ClientService, private HandymanService: HandymanService, private router: Router) {}
 
   ngOnInit(): void {
-    if(localStorage.getItem('role')=="Client")
-      this.getClientByID(localStorage.getItem('userId'));
+    if (localStorage.getItem('role') == 'Client') this.getClientByID(localStorage.getItem('userId'));
     else this.getHandymanBySSN(localStorage.getItem('userId'));
     this.checkStatus = this.localStorageItem();
   }
@@ -30,18 +30,21 @@ export class ProfileComponent implements OnInit {
     );
   }
 
-  getHandymanBySSN(ssn){
-this.HandymanService.getHandymanProfileBySSN(ssn).subscribe(
-  res=>{
-    this.handyman=res;
+  getHandymanBySSN(ssn) {
+    this.HandymanService.getHandymanProfileBySSN(ssn).subscribe(res => {
+      this.handyman = res;
+    });
   }
-);}
 
-public localStorageItem(): boolean {
-    if (localStorage.getItem("role") === "Client") {
-      return true
+  public localStorageItem(): boolean {
+    if (localStorage.getItem('role') === 'Client') {
+      return true;
     } else {
       return false;
-    };
+    }
+  }
+
+  Onsubmit() {
+    this.router.navigate(['edit']);
   }
 }
