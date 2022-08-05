@@ -24,73 +24,82 @@ import { ProfileComponent } from './profile/profile.component';
 import { RequestDetailsComponent } from './Request/request-details/request-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpcomingRequestComponent } from './upcoming-request/upcoming-request.component';
-
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [AppComponent, 
-                 PlumberComponentComponent,
-                 HistoryOfRequestsComponent, 
-                 HandymenComponent, 
-                 CarpentersComponent, 
-                 ElectriciansComponent, 
-                 PaintersComponent, 
-                 MechanicsComponent, AppliancesTechnicianComponent, OtherComponent, RequestDetailsComponent, UpcomingRequestComponent],
-  imports: [BrowserModule, 
-            AppRoutingModule, 
-            BrowserAnimationsModule, 
-            SharedModule, 
-            NgxSkeletonLoaderModule,
-            ReactiveFormsModule,
-            FormsModule
-    ,RouterModule.forRoot([
-    {
-      path: 'handymen/1',
-      component: PlumberComponentComponent
-    },
-    {
-      path: 'handymen',
-      component: HandymenComponent
-    },
-    {
-      path: 'handymen/2',
-      component: CarpentersComponent
-    },
-    {
-      path: 'handymen/3',
-      component: MechanicsComponent
-    },
-    {
-      path: 'handymen/4',
-      component: PaintersComponent
-    },
-    {
-      path: 'handymen/5',
-      component: ElectriciansComponent
-    },
-    {
-      path: 'handymen/6',
-      component: AppliancesTechnicianComponent
-    },
-    {
-      path: 'client-profile',
-      component: ClientProfileComponent
-    },
-    {
-      path: 'profile',
-      component: ProfileComponent
-    },
-    {
-      path: 'upcoming-request',
-      component: UpcomingRequestComponent
-    }
-  ])
-],
+  declarations: [
+    AppComponent,
+    PlumberComponentComponent,
+    HistoryOfRequestsComponent,
+    HandymenComponent,
+    CarpentersComponent,
+    ElectriciansComponent,
+    PaintersComponent,
+    ProfileComponent,
+    MechanicsComponent,
+    AppliancesTechnicianComponent,
+    OtherComponent,
+    RequestDetailsComponent,
+    UpcomingRequestComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    SharedModule,
+    NgxSkeletonLoaderModule,
+    ReactiveFormsModule,
+    FormsModule,
+    CommonModule,
+    RouterModule.forRoot([
+      {
+        path: 'handymen/1',
+        component: PlumberComponentComponent
+      },
+      {
+        path: 'handymen',
+        component: HandymenComponent
+      },
+      {
+        path: 'handymen/2',
+        component: CarpentersComponent
+      },
+      {
+        path: 'handymen/3',
+        component: MechanicsComponent
+      },
+      {
+        path: 'handymen/4',
+        component: PaintersComponent
+      },
+      {
+        path: 'handymen/5',
+        component: ElectriciansComponent
+      },
+      {
+        path: 'handymen/6',
+        component: AppliancesTechnicianComponent
+      },
+      {
+        path: 'client-profile',
+        component: ClientProfileComponent
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent
+      },
+      {
+        path: 'upcoming-request',
+        component: UpcomingRequestComponent
+      }
+    ])
+  ],
   providers: [
     {
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenServiceService,
-    multi: true
-}
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenServiceService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
