@@ -1,5 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CommunicationLayerService } from '../communication-layer.service';
 import { RequestsService } from '../services/RequestS.service';
 
 @Component({
@@ -10,7 +12,8 @@ import { RequestsService } from '../services/RequestS.service';
 export class UpcomingRequestComponent implements OnInit {
 requests;
 pipe = new DatePipe('en-US');
-  constructor(private requestService : RequestsService) { }
+  constructor(private requestService : RequestsService , private CommunicationService : CommunicationLayerService,
+    private router : Router) { }
 
   ngOnInit(): void {
     this.requestService.getPendingRequestsByHandymanSsn(Number(localStorage.getItem('userId'))).subscribe(res=>{
@@ -26,8 +29,13 @@ pipe = new DatePipe('en-US');
   }
 
   acceptRequest(id:number) {
-    this.requestService.acceptRequest(id).subscribe();
-    location.reload();
+    this.requestService.acceptRequest(id).subscribe(res=>{
+      if(res){
+        this.CommunicationService.SetRequestID(res.request_ID);
+        this.router.navigate([`/requestdetails`]);
+      }
+      else location.reload();
+    });
   }
 
 }
