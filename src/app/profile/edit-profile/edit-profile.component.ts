@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ClientService } from 'src/app/services/Client.service';
 import { HandymanService } from 'src/app/services/Handyman.service';
+import { RegionService } from 'src/app/services/Region.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,7 +12,7 @@ import { HandymanService } from 'src/app/services/Handyman.service';
 export class EditProfileComponent implements OnInit {
   formGroup: FormGroup;
   client;
-  // Regions;
+  Regions;
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$';
 
   checkStatus: boolean = true;
@@ -19,12 +20,14 @@ export class EditProfileComponent implements OnInit {
   constructor(
     private ClientService: ClientService,
     private HandymanService: HandymanService,
+    private RegionService: RegionService,
     private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
     this.getClientByID(localStorage.getItem('userId'));
     this.initForm();
+    this.GetRegions();
   }
 
   public localStorageItem(): boolean {
@@ -41,7 +44,7 @@ export class EditProfileComponent implements OnInit {
       client_ID: [Number(localStorage.getItem('userId'))],
       client_name: [null, Validators.compose([Validators.required])],
       client_Address: [null, Validators.compose([Validators.required])],
-      region_ID: [1],
+      region_ID: [null],
       client_Email: ['', Validators.compose([Validators.required, Validators.pattern(this.emailPattern)])],
       client_Mobile: [''],
       password: ['']
@@ -53,6 +56,16 @@ export class EditProfileComponent implements OnInit {
       res => {
         this.client = res;
         console.log(this.client);
+      },
+      err => {}
+    );
+  }
+
+  GetRegions() {
+    debugger;
+    this.RegionService.getRegion().subscribe(
+      reg => {
+        this.Regions = reg;
       },
       err => {}
     );

@@ -50,12 +50,15 @@
 						<input class="ll-dataset__value" type="number" placeholder="Phone number" formControlName="client_Mobile"
 							value="{{ client.client_Mobile }}">
 					</div>
-					<!-- <div class="ll-dataset mt-4">
+					<div class="ll-dataset mt-4">
 						<label class="ll-dataset__label" for="region_ID">
-							Region
+							Region:
 						</label>
-						<input class="ll-dataset__value" type="number" placeholder="0" formControlName="region_ID">
-					</div> -->
+						<select name="region_ID" class="ll-dataset__value" id="region_ID" formControlName="region_ID">
+							<option *ngFor="let region of Regions" value="{{ region.region_ID }}">{{ region.region_Name }}</option>
+
+						</select>
+					</div>
 				</div>
 			</div>
 		</form>
