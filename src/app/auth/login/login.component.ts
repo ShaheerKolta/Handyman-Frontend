@@ -29,14 +29,15 @@ export class LoginComponent implements OnInit {
     });
   }
   submit() {
+    debugger;
     this.LoginService.login(this.loginForm.value).subscribe(data => {
       localStorage.setItem('token', data['token']);
       localStorage.setItem('userId', data['userId']);
       localStorage.setItem('role', this.loginForm.value.role);
     });
-    // this.redirect()
+     this.redirect()
 
-    this.router.navigate([''], {});
+    //this.router.navigate([''], {});
   }
   redirect() {
     if (this.isLoggedIn === true) {
