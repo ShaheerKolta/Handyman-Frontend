@@ -36,6 +36,10 @@ export class RequestsService {
     return this.requestService.getById(this.Controller + '/cancel', id) as Observable<any>
   }
 
+  acceptRequest(id : number){
+    return this.requestService.getById(this.Controller + '/accept', id) as Observable<any>
+  }
+
   getRequestsByClientIDorHandySSN(id, role: string) {
     return this.requestService.getById(this.Controller + '/' + role, id) as Observable<any>;
   }
@@ -44,6 +48,10 @@ export class RequestsService {
     return this.requestService.put(this.Controller + `/review` , id, formData)
   }
 
+  getPendingRequestsByHandymanSsn(ssn:number)
+  {
+    return this.requestService.getById(this.Controller + '/handyman/pending', ssn) as Observable<any>
+  }
   // getRequestByID(id: Number) {
   //   return this.requestService.getById(this.Controller, id) as Observable<any>;
   // }

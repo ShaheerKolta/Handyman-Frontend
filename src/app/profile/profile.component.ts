@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from 'src/app/services/Client.service';
+import { HandymanService } from '../services/Handyman.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,19 +9,39 @@ import { ClientService } from 'src/app/services/Client.service';
 })
 export class ProfileComponent implements OnInit {
   client;
-  constructor(private ClientService: ClientService) {}
+  handyman;
+  checkStatus:boolean=true;
+  role:boolean = localStorage.getItem('role') === 'Handyman' ? false: true;
+  constructor(private ClientService: ClientService , private HandymanService : HandymanService) {}
 
   ngOnInit(): void {
-    this.getClientByID(localStorage.getItem('userId'));
+    if(localStorage.getItem('role')=="Client")
+      this.getClientByID(localStorage.getItem('userId'));
+    else this.getHandymanBySSN(localStorage.getItem('userId'));
+    this.checkStatus = this.localStorageItem();
   }
 
   getClientByID(id) {
     this.ClientService.getClientbyId(id).subscribe(
       res => {
         this.client = res;
-        console.log(this.client);
       },
       err => {}
     );
+  }
+
+  getHandymanBySSN(ssn){
+this.HandymanService.getHandymanProfileBySSN(ssn).subscribe(
+  res=>{
+    this.handyman=res;
+  }
+);}
+
+public localStorageItem(): boolean {
+    if (localStorage.getItem("role") === "Client") {
+      return true
+    } else {
+      return false;
+    };
   }
 }

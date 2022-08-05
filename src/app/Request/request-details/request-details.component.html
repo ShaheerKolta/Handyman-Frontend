@@ -55,7 +55,7 @@
                   {{getstatus(request.request.request_Status)}}
                 </div>
               </div>
-              <div class="ll-dataset mt-4" *ngIf="role == false">
+              <div class="ll-dataset mt-4" *ngIf="role == false && dateReq == true && status == 2">
                 <div class="ll-dataset__label">
                   Handyman Phone:
                 </div>
@@ -63,7 +63,7 @@
                   {{request.handymanPhone}}
                 </div>
               </div>
-              <div class="ll-dataset mt-4" *ngIf="role == true">
+              <div class="ll-dataset mt-4" *ngIf="role == true && dateReq == true && status == 2">
                 <div class="ll-dataset__label">
                   Client Phone:
                 </div>
@@ -71,7 +71,7 @@
                   {{request.clientPhone}}
                 </div>
               </div>
-              <div class="ll-dataset mt-4" *ngIf="role == true">
+              <div class="ll-dataset mt-4" *ngIf="role == true && dateReq == true && status == 2">
                 <div class="ll-dataset__label">
                   Client Address:
                 </div>
@@ -153,8 +153,8 @@
                   Edit Review
                 </button>
               </div>
-              <button class="text-blue-400 hover:text-accent ml-auto flex items-center"
-                *ngIf="(status == 2 ||status == 1||status == 0) && dateReq==true" (click)="cancelRequest()"
+              <button class="text-red-400 hover:text-accent ml-auto flex items-center"
+                *ngIf="(status == 2 ||status == 1||status == 0) && dateReq == true" (click)="cancelRequest()"
                 routerLink="/auth/requestHistory">
                 <mat-icon class='material-icons-round'>cancel</mat-icon>
                 Cancel

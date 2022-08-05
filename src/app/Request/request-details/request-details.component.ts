@@ -96,6 +96,5 @@ export class RequestDetailsComponent implements OnInit {
   }
    cancelRequest() {
     this.requestsservice.cancelRequest(this.request.request.request_ID).subscribe();
-    debugger
   }
 }
