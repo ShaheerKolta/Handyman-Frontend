@@ -9,6 +9,10 @@ export const menuList: Menu[] = [
     name: 'My Profile'
   },
   {
+    path: '/auth/requestHistory',
+    name: 'Requests'
+  },
+  {
     path: '/about',
     name: 'About'
   },

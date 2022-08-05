@@ -31,7 +31,6 @@ export class HomeComponent implements OnInit {
   }
 
   checkLogged() {
-    debugger;
     if (!localStorage.getItem('Signed')) {
       localStorage.setItem('Signed', 'no reload');
       location.reload();
