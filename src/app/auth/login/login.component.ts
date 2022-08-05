@@ -35,15 +35,15 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('userId', data['userId']);
       localStorage.setItem('role', this.loginForm.value.role);
     });
-     this.redirect()
+     //this.redirect()
 
-    //this.router.navigate([''], {});
+    this.router.navigate([''], {});
   }
-  redirect() {
-    if (this.isLoggedIn === true) {
-      this.router.navigate(['/']).then(() => {
-        window.location.reload();
-      });
-    }
-  }
+  // redirect() {
+  //   if (this.isLoggedIn === true) {
+  //     this.router.navigate(['/']).then(() => {
+  //       window.location.reload();
+  //     });
+  //   }
+  // }
 }
