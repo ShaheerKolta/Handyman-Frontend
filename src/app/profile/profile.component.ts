@@ -51,7 +51,11 @@ export class ProfileComponent implements OnInit {
   }
 
   Onsubmit() {
-    this.CommunicationService.setClient(this.client);
+    if (!this.role) {
+      this.CommunicationService.setClient(this.handyman);
+    } else {
+      this.CommunicationService.setClient(this.client);
+    }
     this.router.navigate(['edit']);
   }
 }

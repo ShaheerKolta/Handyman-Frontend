@@ -8,7 +8,6 @@ import { RequestService } from './request.service';
   providedIn: 'root'
 })
 export class HandymanService {
-
   Controller = '/Handyman';
   constructor(private requestService: RequestService) {}
   getHandymen() {
@@ -30,7 +29,7 @@ export class HandymanService {
   }
 
   editHandymen(id: number, formData) {
-    return this.requestService.put(this.Controller + '/', id, formData) as Observable<any>;
+    return this.requestService.put(this.Controller, id, formData) as Observable<any>;
   }
 
   deleteHandymen(id) {

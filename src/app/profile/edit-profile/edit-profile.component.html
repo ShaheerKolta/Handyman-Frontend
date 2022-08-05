@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="role == true">
 	<!-- User Meta End -->
 	<!-- User Meta Start -->
 	<div class="border bg-white mt-8 rounded-md">
@@ -63,3 +63,52 @@
 </div>
 
 <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+<div class="container" *ngIf="role != true">
+	<!-- User Meta End -->
+	<!-- User Meta Start -->
+	<div class="border bg-white mt-8 rounded-md">
+		<div class="flex p-4 bg-gray-200">
+			<h6 class="text-normal">Personal Information</h6>
+			<button (click)="submit()" class="text-blue-400 hover:text-accent ml-auto flex items-center">
+				Save</button>
+		</div>
+		<form [formGroup]="formGroup">
+			<div class="flex flex-wrap p-4">
+				<div class="w-full sm:w-1/2">
+					<div class="ll-dataset">
+						<label class="ll-dataset__label" for="handyman_Name">
+							Name:
+						</label>
+						<input class="ll-dataset__value" type="text" placeholder="Name" formControlName="handyman_Name">
+					</div>
+					<br>
+					<div class=" ll-dataset">
+						<label class="ll-dataset__label" for="handyman_Fixed_Rate">
+							Fixed Rate:
+						</label>
+						<input class="ll-dataset__value" type="text" placeholder="Email address"
+							formControlName="handyman_Fixed_Rate">
+					</div>
+					<br>
+					<div class="ll-dataset">
+						<label class="ll-dataset__label" for="password">
+							Password:
+						</label>
+						<input class="ll-dataset__value" type="password" placeholder="Password" formControlName="password">
+					</div>
+				</div>
+				<div class="w-full sm:w-1/2 mt-4 sm:mt-0">
+					<div class="ll-dataset">
+						<label class="ll-dataset__label" for="handyman_Mobile">
+							Mobile Number:
+						</label>
+						<input class="ll-dataset__value" type="text" placeholder="Phone number" formControlName="handyman_Mobile">
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<!-- User Meta End -->
+</div>

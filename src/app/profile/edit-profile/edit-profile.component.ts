@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { delay } from 'rxjs/operators';
 import { CommunicationLayerService } from 'src/app/communication-layer.service';
 import { ClientService } from 'src/app/services/Client.service';
@@ -25,6 +26,7 @@ export class EditProfileComponent implements OnInit {
     private HandymanService: HandymanService,
     private RegionService: RegionService,
     private communicationService: CommunicationLayerService,
+    private router: Router,
     private fb: FormBuilder
   ) {}
 
@@ -33,10 +35,13 @@ export class EditProfileComponent implements OnInit {
     this.communicationService.getClient().subscribe(newValue => {
       if (newValue) {
         this.client = newValue;
-        console.log('test comm' + this.client);
       }
     });
-    this.initForm();
+    if (!this.role) {
+      this.initHandymanForm();
+    } else {
+      this.initForm();
+    }
   }
 
   public localStorageItem(): boolean {
@@ -59,6 +64,17 @@ export class EditProfileComponent implements OnInit {
     });
   }
 
+  initHandymanForm() {
+    this.formGroup = this.fb.group({
+      handyman_SSN: [this.client.handyman_SSN],
+      handyman_Name: new FormControl(this.client.handyman_Name),
+      craftID: [this.client.craftID],
+      handyman_Fixed_Rate: new FormControl(this.client.handyman_Fixed_Rate),
+      handyman_Mobile: new FormControl(this.client.handyman_Mobile),
+      password: new FormControl(this.client.password)
+    });
+  }
+
   async GetRegions() {
     await this.RegionService.getRegion().subscribe(
       reg => {
@@ -70,12 +86,23 @@ export class EditProfileComponent implements OnInit {
 
   submit() {
     console.log(this.formGroup.value);
-    this.ClientService.editClient(Number(localStorage.getItem('userId')), this.formGroup.value).subscribe(
-      res => {
-        console.log(res);
-      },
+    if (!this.role) {
+      this.HandymanService.editHandymen(Number(localStorage.getItem('userId')), this.formGroup.value).subscribe(
+        res => {
+          console.log(res);
+        },
 
-      err => {}
-    );
+        err => {}
+      );
+    } else {
+      this.ClientService.editClient(Number(localStorage.getItem('userId')), this.formGroup.value).subscribe(
+        res => {
+          console.log(res);
+        },
+
+        err => {}
+      );
+    }
+    this.router.navigate(['profile']);
   }
 }
