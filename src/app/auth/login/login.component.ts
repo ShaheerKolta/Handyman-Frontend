@@ -29,20 +29,21 @@ export class LoginComponent implements OnInit {
     });
   }
   submit() {
+    debugger;
     this.LoginService.login(this.loginForm.value).subscribe(data => {
       localStorage.setItem('token', data['token']);
       localStorage.setItem('userId', data['userId']);
       localStorage.setItem('role', this.loginForm.value.role);
     });
-    // this.redirect()
+     //this.redirect()
 
     this.router.navigate([''], {});
   }
-  redirect() {
-    if (this.isLoggedIn === true) {
-      this.router.navigate(['/']).then(() => {
-        window.location.reload();
-      });
-    }
-  }
+  // redirect() {
+  //   if (this.isLoggedIn === true) {
+  //     this.router.navigate(['/']).then(() => {
+  //       window.location.reload();
+  //     });
+  //   }
+  // }
 }

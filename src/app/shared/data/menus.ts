@@ -9,11 +9,11 @@ export const menuList: Menu[] = [
     name: 'My Profile'
   },
   {
-    path: '/about',
-    name: 'About'
+    path: '/auth/requestHistory',
+    name: 'Requests'
   },
   {
-    path: '/contact',
-    name: 'Contact'
+    path: '/upcoming-request',
+    name: 'Pending Requests'
   }
 ];

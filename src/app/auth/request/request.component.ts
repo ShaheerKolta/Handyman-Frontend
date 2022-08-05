@@ -1,12 +1,13 @@
 import { validateHorizontalPosition } from '@angular/cdk/overlay';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NumberValueAccessor, Validators } from '@angular/forms';
 //import { RegisterService } from 'src/app/services/register.service';
 import { RequestsService } from 'src/app/services/RequestS.service';
 import { RequestService } from 'src/app/services/Request.service';
 import { MakingRequestService } from 'src/app/services/MakingRequest.service';
 import { PaymentService } from 'src/app/services/Payment.service';
 import { CommunicationLayerService } from 'src/app/communication-layer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-request',
@@ -18,7 +19,7 @@ export class RequestComponent implements OnInit {
   controller = '/Request';
   SSN;
   //ClientID;
-  ClientID = localStorage.getItem('userId');
+  ClientID = + localStorage.getItem('userId');
 
   constructor(
     private requestService: RequestService,
@@ -26,10 +27,10 @@ export class RequestComponent implements OnInit {
     private fb: FormBuilder,
     private MakingRequestService: MakingRequestService,
     private payment: PaymentService,
-    private communicationService: CommunicationLayerService
+    private communicationService: CommunicationLayerService,
+    private router : Router
   ) {}
   ngOnInit(): void {
-    debugger;
     //this.ClientID = this.getClientID();
     this.getSSN();
     this.initForm();
@@ -37,13 +38,18 @@ export class RequestComponent implements OnInit {
 
   submit() {
     //this.initForm();
+    debugger
     console.log(this.formGroup.value);
     this.createRequest(this.formGroup.value).subscribe(res => {
       debugger;
+      if(res)
+      {
+        this.isPrevious(res);
+      }
     }),
       err => {};
-    debugger;
   }
+
 
   getSSN() {
     this.communicationService.getSSN().subscribe(newValue => {
@@ -51,6 +57,7 @@ export class RequestComponent implements OnInit {
       if (newValue) {
         debugger;
         this.SSN = newValue;
+
         //this.getHandymanProfileBySSNMethod(newValue);
       }
     });
@@ -61,14 +68,15 @@ export class RequestComponent implements OnInit {
   }
 
   initForm() {
-    debugger;
     this.formGroup = this.fb.group({
       client_ID: [this.ClientID, Validators.compose([Validators.required])],
       handyman_SSN: [this.SSN, Validators.compose([Validators.required])],
-      Request_Date: [null, Validators.compose([Validators.required])],
-      method: [null, Validators.compose([Validators.required])]
+      request_Date: [null, Validators.compose([Validators.required])],
+      method: ["Cash", Validators.compose([Validators.required])]
     });
   }
+
+  
 
   isControlValid(controlName: string): boolean {
     const control = this.formGroup.controls[controlName];
@@ -89,8 +97,15 @@ export class RequestComponent implements OnInit {
     const control = this.formGroup.controls[controlName];
     return control.dirty || control.touched;
   }
+
+  isPrevious(res){
+    debugger
+    this.communicationService.SetRequestID(res.request_ID);
+    this.router.navigate([`/requestdetails`]);
+  }
+
   createRequest(formData) {
-    debugger;
+    debugger
     return this.requestsService.post('/Request', formData);
   }
 }
