@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { delay } from 'rxjs/operators';
+import { CommunicationLayerService } from 'src/app/communication-layer.service';
 import { ClientService } from 'src/app/services/Client.service';
 import { HandymanService } from 'src/app/services/Handyman.service';
 import { RegionService } from 'src/app/services/Region.service';
@@ -7,7 +9,8 @@ import { RegionService } from 'src/app/services/Region.service';
 @Component({
   selector: 'app-profile',
   templateUrl: './edit-profile.component.html',
-  styleUrls: ['./edit-profile.component.scss']
+  styleUrls: ['./edit-profile.component.scss'],
+  providers: [FormBuilder]
 })
 export class EditProfileComponent implements OnInit {
   formGroup: FormGroup;
@@ -21,13 +24,19 @@ export class EditProfileComponent implements OnInit {
     private ClientService: ClientService,
     private HandymanService: HandymanService,
     private RegionService: RegionService,
+    private communicationService: CommunicationLayerService,
     private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
-    this.getClientByID(localStorage.getItem('userId'));
-    this.initForm();
     this.GetRegions();
+    this.communicationService.getClient().subscribe(newValue => {
+      if (newValue) {
+        this.client = newValue;
+        console.log('test comm' + this.client);
+      }
+    });
+    this.initForm();
   }
 
   public localStorageItem(): boolean {
@@ -38,32 +47,20 @@ export class EditProfileComponent implements OnInit {
     }
   }
 
-  // Starting Work
   initForm() {
     this.formGroup = this.fb.group({
-      client_ID: [Number(localStorage.getItem('userId'))],
-      client_name: [null, Validators.compose([Validators.required])],
-      client_Address: [null, Validators.compose([Validators.required])],
-      region_ID: [null],
-      client_Email: ['', Validators.compose([Validators.required, Validators.pattern(this.emailPattern)])],
-      client_Mobile: [''],
-      password: ['']
+      client_ID: [this.client.client_ID],
+      client_name: new FormControl(this.client.client_name),
+      client_Address: new FormControl(this.client.client_Address),
+      region_ID: new FormControl(this.client.region_ID),
+      client_Email: new FormControl(this.client.client_Email),
+      client_Mobile: new FormControl(this.client.client_Mobile),
+      password: new FormControl(this.client.password)
     });
   }
 
-  getClientByID(id) {
-    this.ClientService.getClientbyId(id).subscribe(
-      res => {
-        this.client = res;
-        console.log(this.client);
-      },
-      err => {}
-    );
-  }
-
-  GetRegions() {
-    debugger;
-    this.RegionService.getRegion().subscribe(
+  async GetRegions() {
+    await this.RegionService.getRegion().subscribe(
       reg => {
         this.Regions = reg;
       },
@@ -72,8 +69,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   submit() {
-    debugger;
-    console.log(this.formGroup);
+    console.log(this.formGroup.value);
     this.ClientService.editClient(Number(localStorage.getItem('userId')), this.formGroup.value).subscribe(
       res => {
         console.log(res);

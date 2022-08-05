@@ -32,6 +32,9 @@ export class CommunicationLayerService {
   currentCraftIDValue: Subject<Number> = new BehaviorSubject<Number>(null);
   CraftIDValue = this.currentCraftIDValue.asObservable();
 
+  currentClientValue: Subject<Number> = new BehaviorSubject<Number>(null);
+  ClientValue = this.currentClientValue.asObservable();
+
   // ! this is a setter should be replaced
   //private data = new Subject<number>();
   setSSN(ssn: number) {
@@ -67,5 +70,13 @@ export class CommunicationLayerService {
 
   getCraftId() {
     return this.CraftIDValue;
+  }
+
+  setClient(client) {
+    this.currentClientValue.next(client);
+  }
+
+  getClient() {
+    return this.ClientValue;
   }
 }
