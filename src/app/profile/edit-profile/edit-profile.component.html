@@ -14,16 +14,16 @@
 						<label class="ll-dataset__label" for="client_name">
 							Name:
 						</label>
-						<input class="ll-dataset__value" type="text" placeholder="Name" formControlName="client_name" [value]="
-							client.client_name">
+						<input class="ll-dataset__value" type="text" placeholder="Name" formControlName="client_name"
+							value="{{ client.client_name }}">
 					</div>
 					<br>
-					<div class="ll-dataset">
+					<div class=" ll-dataset">
 						<label class="ll-dataset__label" for="client_Email">
 							Email:
 						</label>
 						<input class="ll-dataset__value" type="text" placeholder="Email address" formControlName="client_Email"
-							[value]="client.client_Email">
+							value="{{ client.client_Email }}">
 					</div>
 					<br>
 					<div class="ll-dataset">
@@ -31,7 +31,7 @@
 							Password:
 						</label>
 						<input class="ll-dataset__value" type="password" placeholder="Password" formControlName="password"
-							[value]="client.password">
+							value="{{ client.password }}">
 					</div>
 					<br>
 					<div class="ll-dataset">
@@ -39,7 +39,7 @@
 							Address:
 						</label>
 						<input class="ll-dataset__value" type="text" placeholder="Address" formControlName="client_Address"
-							[value]="client.client_Address">
+							value="{{ client.client_Address }}">
 					</div>
 				</div>
 				<div class="w-full sm:w-1/2 mt-4 sm:mt-0">
@@ -48,7 +48,7 @@
 							Mobile Number:
 						</label>
 						<input class="ll-dataset__value" type="number" placeholder="Phone number" formControlName="client_Mobile"
-							[value]="client.client_Mobile">
+							value="{{ client.client_Mobile }}">
 					</div>
 					<!-- <div class="ll-dataset mt-4">
 						<label class="ll-dataset__label" for="region_ID">
@@ -60,6 +60,7 @@
 			</div>
 		</form>
 	</div>
+
 	<!-- User Meta End -->
 </div>
 

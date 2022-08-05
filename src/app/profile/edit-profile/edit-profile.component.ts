@@ -25,7 +25,6 @@ export class EditProfileComponent implements OnInit {
   ngOnInit(): void {
     this.getClientByID(localStorage.getItem('userId'));
     this.initForm();
-    // this.loadForm();
   }
 
   public localStorageItem(): boolean {
@@ -37,37 +36,15 @@ export class EditProfileComponent implements OnInit {
   }
 
   // Starting Work
-  loadForm() {
-    this.formGroup = new FormGroup({
-      client_ID: new FormControl(localStorage.getItem('userId')),
-      client_name: new FormControl('', Validators.required),
-      client_Address: new FormControl(''),
-      region_ID: new FormControl(1),
-      client_Email: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
-      client_Mobile: new FormControl('' /*,[Validators.required/,Validators.pattern(this.phoneNumber) ]*/),
-      password: new FormControl('', Validators.required)
-    });
-  }
   initForm() {
     this.formGroup = this.fb.group({
-      client_name: [this.client.client_name, Validators.compose([Validators.required])],
-      client_Address: [this.client.client_Address, Validators.compose([Validators.required])],
-      region_ID: [null],
-      client_Email: [
-        this.client.client_Email,
-        Validators.compose([Validators.required, Validators.pattern(this.emailPattern)])
-      ],
-      client_Mobile: [
-        this.client.client_Mobile,
-        Validators.compose([
-          Validators.required
-          //Validators.pattern(this.phonePattern)
-        ])
-      ],
-      password: [
-        this.client.password,
-        Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(100)])
-      ]
+      client_ID: [Number(localStorage.getItem('userId'))],
+      client_name: [null, Validators.compose([Validators.required])],
+      client_Address: [null, Validators.compose([Validators.required])],
+      region_ID: [1],
+      client_Email: ['', Validators.compose([Validators.required, Validators.pattern(this.emailPattern)])],
+      client_Mobile: [''],
+      password: ['']
     });
   }
 
@@ -83,7 +60,8 @@ export class EditProfileComponent implements OnInit {
 
   submit() {
     debugger;
-    this.ClientService.editClient(localStorage.getItem('userId'), this.formGroup.value).subscribe(
+    console.log(this.formGroup);
+    this.ClientService.editClient(Number(localStorage.getItem('userId')), this.formGroup.value).subscribe(
       res => {
         console.log(res);
       },

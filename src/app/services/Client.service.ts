@@ -20,7 +20,7 @@ export class ClientService {
   }
 
   editClient(id, formData) {
-    return this.requestService.put(this.Controller + '/', id, formData) as Observable<any>;
+    return this.requestService.put(this.Controller, id, formData) as Observable<any>;
   }
 
   deleteClients(id) {
