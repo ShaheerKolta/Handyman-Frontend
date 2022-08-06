@@ -148,7 +148,8 @@
                                 h-10" formControlName="review">
                   </div>
                 </form>
-                <button class="text-blue-400 hover:text-accent ml-auto flex items-center" (click)="submit()">
+                <button class="text-blue-400 hover:text-accent ml-auto flex items-center" (click)="submit()"
+                  *ngIf="(status == 2) && dateReq == false">
                   <mat-icon class="_edit_icon mr-2">edit</mat-icon>
                   Edit Review
                 </button>
@@ -157,7 +158,7 @@
                 *ngIf="(status == 2 ||status == 1||status == 0) && dateReq == true" (click)="cancelRequest()"
                 routerLink="/auth/requestHistory">
                 <mat-icon class='material-icons-round'>cancel</mat-icon>
-                Cancel
+                Cancel Request
               </button>
             </div>
           </div>

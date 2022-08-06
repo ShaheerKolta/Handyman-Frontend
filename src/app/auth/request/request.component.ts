@@ -104,7 +104,7 @@ export class RequestComponent implements OnInit {
       this.communicationService.SetRequestID(res.request_ID);
       this.router.navigate([`/requestdetails`]);
     }
-    this.router.navigate([`/auth/requestHistory`]);
+    else this.router.navigate([`/auth/requestHistory`]);
   }
 
   createRequest(formData) {

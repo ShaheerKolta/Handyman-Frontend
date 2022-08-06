@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tick } from '@angular/core/testing';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -23,7 +24,7 @@ export class LoginService {
    Controller = '/login';
 
 
-  constructor(private requestService: RequestService, http: HttpClient) {}
+  constructor(private requestService: RequestService, http: HttpClient, private router : Router) {}
 
   loginform: FormGroup = new FormGroup({
     userName: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
@@ -33,13 +34,7 @@ export class LoginService {
     role: new FormControl(null, Validators.required)
   });
 
-  // login(Email:string , password:string){
-  //   return this.requestService.login(Email,password)
-  //   .pipe(tap(Response:any)=>{localStorage.setItem('token',Response.token);
-  //   this._isLoggedIn$.next(true);
-
-  // })
-
+  
   login(data): Observable<any> {
     return this.requestService.post( this.loginPath,data);
   }
@@ -61,19 +56,10 @@ export class LoginService {
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
-    document.location.reload();
+    // document.location.reload();
+    this.router.navigate(['/']);
   }
   
 
-  // public isAuthenticated(): boolean {
-  //   // get the token
-  //   const token = this.getToken();
-  //   // return a boolean reflecting
-  //   // whether or not the token is expired
-  //   return tokenNotExpired(null, token);
-  // }
-
-  // CreateLogin(formData){
-  //   return this.requestService.post("/login/Handyman",formData) ;
-  // }
+ 
 }
