@@ -57,7 +57,7 @@ export class LoginService {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
     // document.location.reload();
-    this.router.navigate(['/']);
+    this.router.navigate(['/']).then(s=>document.location.reload());
   }
   
 
