@@ -56,6 +56,8 @@ export class LoginService {
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
+    localStorage.removeItem('role');
+
     // document.location.reload();
     this.router.navigate(['/']);
   }

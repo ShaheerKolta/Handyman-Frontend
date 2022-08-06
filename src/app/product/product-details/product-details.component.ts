@@ -29,7 +29,7 @@ export class ProductDetailsComponent implements OnInit {
     private HandymanService: HandymanService,
     public communicationService: CommunicationLayerService,
     private router: Router
-  ) {}
+  ) { }
 
   // variable of carpenter to call it in profile (Product Details)
 
@@ -65,16 +65,22 @@ export class ProductDetailsComponent implements OnInit {
         this.Handyman = res;
         console.log('This is a Test', res);
       },
-      err => {}
+      err => { }
     );
   }
 
   onSubmit() {
-    //console.log('This is  a test from inside the profile :' + this.ssnData);
-    this.communicationService.getSSN().subscribe(newValue => {
-      // console.log('this is after send data', newValue);
-      this.router.navigate([`/auth/request`]);
-    });
+    if (!localStorage.getItem('token')) {
+      this.router.navigate([`/auth/login`]);
+    }
+    else {
+      //console.log('This is  a test from inside the profile :' + this.ssnData);
+      this.communicationService.getSSN().subscribe(newValue => {
+        // console.log('this is after send data', newValue);
+        this.router.navigate([`/auth/request`]);
+
+      });
+    }
   }
 
   // SSN

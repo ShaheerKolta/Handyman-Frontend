@@ -47,7 +47,13 @@ export class LoginComponent implements OnInit {
   }
   redirect() {
     if (this.isLoggedIn === true) {
+      if(localStorage.getItem('role') == 'Handyman')
+      {
+        this.router.navigate(['/profile'])
+      }
+      else
       this.router.navigate(['/'])
+      
       // .then(() => {
       //   window.location.reload();
       // });
