@@ -12,8 +12,11 @@
         </div>
         <div class="grid grid-cols-12 gap-6 xxl:gap-8">
           <div *ngFor="let painter of painters" class="col-span-12 md:col-span-6 xl:col-span-4">
-            <mat-card class="ll-product">
-              <img mat-card-image [src]="painter?.images[0]" alt="{{ painter.name }}" style="width: 100%; margin: 0 0 20px" />
+            <mat-card class="ll-product height">
+              <div  class="img-div">
+              <img mat-card-image src="{{ Handyman.handyman_Photo }}" alt="{{ Handyman.handyman_Name }} "
+                 class="card-img"/>
+              </div>
               <mat-card-content class="flex">
                 <div class="flex-none w-10">
                   <img src="{{ painter?.created_by?.avatar }}" alt="product?.created_by?.name" />
