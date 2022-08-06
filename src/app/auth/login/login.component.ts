@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { login } from 'src/app/models/login';
 import { Subscription, Observable } from 'rxjs';
 import { LoginService } from 'src/app/services/login.service';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'll-login',
@@ -39,6 +40,10 @@ export class LoginComponent implements OnInit {
      this.redirect()
 
     //this.router.navigate([''], {});
+  }
+
+  login(){
+    
   }
   redirect() {
     if (this.isLoggedIn === true) {
