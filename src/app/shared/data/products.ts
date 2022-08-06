@@ -93,7 +93,7 @@ export class productsDB {
     {
       id: 6,
       created_by: {
-        name: 'Appliances Technician ',
+        name: 'Appliances technician',
         avatar: 'assets/images/avatar.png'
       },
       images: [

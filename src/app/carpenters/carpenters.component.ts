@@ -41,6 +41,7 @@ export class CarpentersComponent implements OnInit {
         this.getHandymenByCraftIDMethod(this.craftID);
       }
     });
+    window.scrollTo(0, 0);
     // this.getHandymenByCraftIDMethod(this.craftID);
     //this.HandymanService.setSSN(this.SSN);
   }

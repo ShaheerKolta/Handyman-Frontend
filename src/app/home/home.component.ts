@@ -43,5 +43,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkLogged();
+    window.scrollTo(0, 0);
+
   }
 }

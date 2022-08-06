@@ -11,6 +11,7 @@ export class CarpenterComponentComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
