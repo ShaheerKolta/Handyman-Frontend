@@ -74,12 +74,16 @@ export class ProductDetailsComponent implements OnInit {
       this.router.navigate([`/auth/login`]);
     }
     else {
-      //console.log('This is  a test from inside the profile :' + this.ssnData);
-      this.communicationService.getSSN().subscribe(newValue => {
-        // console.log('this is after send data', newValue);
-        this.router.navigate([`/auth/request`]);
-
-      });
+      debugger
+      if (localStorage.getItem('role') === "Handyman")
+        this.router.navigate([`/profile`]);
+      else {
+        //console.log('This is  a test from inside the profile :' + this.ssnData);
+        this.communicationService.getSSN().subscribe(newValue => {
+          // console.log('this is after send data', newValue);
+          this.router.navigate([`/auth/request`]);
+        });
+      }
     }
   }
 
