@@ -7,7 +7,7 @@ export class productsDB {
         avatar: 'assets/images/avatar.png'
       },
       images: [
-        'assets/images/craftsnames/Plumbers.png',
+        'assets/images/craftsnames/plumber.jpeg',
         'assets/images/products/02-2.png',
         'assets/images/products/02-3.png'
       ],
@@ -25,7 +25,7 @@ export class productsDB {
         avatar: 'assets/images/avatar.png'
       },
       images: [
-        'assets/images/craftsnames/Carpenters.png',
+        'assets/images/craftsnames/carpenter.jpeg',
         'assets/images/products/01-2.png',
         'assets/images/products/01-3.png'
       ],
@@ -43,7 +43,7 @@ export class productsDB {
         avatar: 'assets/images/avatar.png'
       },
       images: [
-        'assets/images/craftsnames/Mechanics.png',
+        'assets/images/craftsnames/mechanic.jpeg',
         'assets/images/products/01-2.png',
         'assets/images/products/01-3.png'
       ],
@@ -61,7 +61,7 @@ export class productsDB {
         avatar: 'assets/images/avatar.png'
       },
       images: [
-        'assets/images/craftsnames/Painters.png',
+        'assets/images/craftsnames/painter.jpeg',
         'assets/images/products/02-2.png',
         'assets/images/products/02-3.png'
       ],
@@ -79,7 +79,7 @@ export class productsDB {
         avatar: 'assets/images/avatar.png'
       },
       images: [
-        'assets/images/craftsnames/Electricians.png',
+        'assets/images/craftsnames/electrician.jpeg',
         'assets/images/products/01-2.png',
         'assets/images/products/01-3.png'
       ],
@@ -97,7 +97,7 @@ export class productsDB {
         avatar: 'assets/images/avatar.png'
       },
       images: [
-        'assets/images/craftsnames/AppliancesTechnicians.png',
+        'assets/images/craftsnames/appliancestech.jpeg',
         'assets/images/products/02-2.png',
         'assets/images/products/02-3.png'
       ],
@@ -108,59 +108,59 @@ export class productsDB {
       category: 'digitalization',
       tags: ['Diesel', 'Hudson', 'Lee']
     } /* ,
-        {
-            id: 7,
-            created_by: {
-                name: 'Other craftsmen',
-                avatar: 'assets/images/avatar.png'
-            },
-            images: ['assets/images/paint1.jpg', 'assets/images/products/01-2.png', 'assets/images/products/01-3.png'],
-            name: 'Choose your handyman',
-            price: 3000.00,
-            rating: 4.8,
-            feedback: 3,
-            category: 'digitalization',
-            tags: [
-                'Diesel',
-                'Hudson',
-                'Lee'
-            ],
-        }, */ /* 
-        {
-            id: 8,
-            created_by: {
-                name: 'Handyman name',
-                avatar: 'assets/images/avatar.png'
-            },
-            images: ['assets/images/paint1.jpg', 'assets/images/products/02-2.png', 'assets/images/products/02-3.png'],
-            name: 'Choose your handyman',
-            price: 3000.00,
-            rating: 4.8,
-            feedback: 3,
-            category: 'digitalization',
-            tags: [
-                'Diesel',
-                'Hudson',
-                'Lee'
-            ],
-        },
-        {
-            id: 9,
-            created_by: {
-                name: 'Handyman name',
-                avatar: 'assets/images/avatar.png'
-            },
-            images: ['assets/images/paint1.jpg', 'assets/images/products/01-2.png', 'assets/images/products/01-3.png'],
-            name: 'Choose your handyman',
-            price: 3000.00,
-            rating: 4.8,
-            feedback: 3,
-            category: 'digitalization',
-            tags: [
-                'Diesel',
-                'Hudson',
-                'Lee'
-            ],
-        }, */
+      {
+          id: 7,
+          created_by: {
+              name: 'Other craftsmen',
+              avatar: 'assets/images/avatar.png'
+          },
+          images: ['assets/images/paint1.jpg', 'assets/images/products/01-2.png', 'assets/images/products/01-3.png'],
+          name: 'Choose your handyman',
+          price: 3000.00,
+          rating: 4.8,
+          feedback: 3,
+          category: 'digitalization',
+          tags: [
+              'Diesel',
+              'Hudson',
+              'Lee'
+          ],
+      }, */ /* 
+      {
+          id: 8,
+          created_by: {
+              name: 'Handyman name',
+              avatar: 'assets/images/avatar.png'
+          },
+          images: ['assets/images/paint1.jpg', 'assets/images/products/02-2.png', 'assets/images/products/02-3.png'],
+          name: 'Choose your handyman',
+          price: 3000.00,
+          rating: 4.8,
+          feedback: 3,
+          category: 'digitalization',
+          tags: [
+              'Diesel',
+              'Hudson',
+              'Lee'
+          ],
+      },
+      {
+          id: 9,
+          created_by: {
+              name: 'Handyman name',
+              avatar: 'assets/images/avatar.png'
+          },
+          images: ['assets/images/paint1.jpg', 'assets/images/products/01-2.png', 'assets/images/products/01-3.png'],
+          name: 'Choose your handyman',
+          price: 3000.00,
+          rating: 4.8,
+          feedback: 3,
+          category: 'digitalization',
+          tags: [
+              'Diesel',
+              'Hudson',
+              'Lee'
+          ],
+      }, */
   ];
 }
