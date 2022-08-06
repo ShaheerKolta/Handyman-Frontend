@@ -13,13 +13,13 @@
         <div class="grid grid-cols-12 gap-6 xxl:gap-8">
           <div *ngFor="let Handyman of handymanCrafts" class="col-span-12 md:col-span-6 xl:col-span-4">
             <mat-card class="ll-product">
-              <img mat-card-image
-                [src]="'assets/images/crafts/'+craft.created_by.name.slice(0, -1).toLowerCase()+'.jpeg'"
-                alt="{{ Handyman.handyman_Name }}" style="width: 100%; margin: 0 0 20px" />
+              <img mat-card-image src="{{ Handyman.handyman_Photo }}" alt="{{ Handyman.handyman_Name }}"
+                style="width: 100%; margin: 0 0 20px" />
+              <!-- [src]="'assets/images/crafts/'+craft.created_by.name.slice(0, -1).toLowerCase()+'.jpeg'" -->
               <mat-card-content class="flex">
-                <div class="flex-none w-10">
-                  <img src="{{ Handyman.handyman_Photo }}" alt="product?.created_by?.name" />
-                </div>
+                <!-- <div class="flex-none w-10">
+                  <img src="assets/images/avatar.png" alt="product?.created_by?.name" />
+                </div> -->
                 <div class="flex-grow pl-3">
                   <h4 class="ll-product__creator">{{ Handyman.handyman_Name }}</h4>
                   <!-- <h2 class="ll-product__name">

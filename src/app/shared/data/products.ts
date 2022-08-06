@@ -97,7 +97,7 @@ export class productsDB {
         avatar: 'assets/images/avatar.png'
       },
       images: [
-        'assets/images/craftsnames/appliancestech.jpeg',
+        'assets/images/craftsnames/appliances technician.jpeg',
         'assets/images/products/02-2.png',
         'assets/images/products/02-3.png'
       ],
