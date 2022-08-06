@@ -91,11 +91,9 @@ export class ClientSginupComponent implements OnInit {
   );
 }
 submit(){
+  debugger
   this.registerService.Createclientregister(this.formGroup.value).subscribe(
     res => {
-      debugger;
-    
-      debugger
     },
     
     err => {}

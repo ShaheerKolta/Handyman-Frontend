@@ -59,7 +59,7 @@ export class LoginService {
     localStorage.removeItem('role');
 
     // document.location.reload();
-    this.router.navigate(['/']);
+    this.router.navigate(['/']).then(s=>document.location.reload());
   }
   
 
